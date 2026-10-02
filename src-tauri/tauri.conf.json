@@ -38,7 +38,7 @@
       "wix": { "language": "en-US" },
       "nsis": { "displayLanguageSelector": false }
     },
-    "createUpdaterArtifacts": true
+    "createUpdaterArtifacts": false
   },
   "plugins": {
     "updater": {

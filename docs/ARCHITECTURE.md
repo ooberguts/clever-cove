@@ -19,3 +19,5 @@ CleverCove is a local-first Tauri 2 desktop application. React components never 
 Private values are reachable only through `PrivateValueService`; public profiles never include them. A game may ask whether a value matches but must not put the expected value or candidate into progress. Anonymous exports are constructed from safe aggregate fields.
 
 The application has no telemetry, analytics, advertising, cloud backend, or network API. The only optional network feature is the signed GitHub release updater.
+
+Updater artifact generation is intentionally disabled in `tauri.conf.json` for the unsigned first-test build. Before enabling it for a production release, generate a Tauri signing key, replace the placeholder public key, add the private key as a GitHub Actions secret, and set `createUpdaterArtifacts` to `true`.
