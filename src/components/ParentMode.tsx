@@ -1,7 +1,8 @@
 import { useMemo, useState, type FormEvent } from "react";
-import { ArrowLeft, Check, Download, Info, Plus, Save, ShieldCheck, UserRound, UsersRound } from "lucide-react";
+import { ArrowLeft, Check, Download, Plus, Save, ShieldCheck, UserRound, UsersRound } from "lucide-react";
 import { GRADES, type Grade, type LearnerProfile } from "../domain/models";
 import type { AppServices } from "../services";
+import { UpdatePanel } from "./UpdatePanel";
 
 interface ParentModeProps {
   services: AppServices;
@@ -84,9 +85,9 @@ export function ParentMode({ services, learners, onRefresh, onExit }: ParentMode
               <article className="setting-card compact">
                 <div className="setting-card-heading"><div className="setting-icon warm"><Download /></div><div><h3>Anonymous progress export</h3><p>Export safe learning totals without names, PINs, or entered digits.</p></div><button className="secondary-button" type="button" onClick={downloadExport}><Download /> Export JSON</button></div>
               </article>
-              <article className="setting-card compact info-card"><Info /><p><strong>CleverCove 0.1.0</strong><br />Profiles and progress are stored in your operating system’s private app-data folder. App updates do not overwrite them.</p></article>
             </>
           ) : <div className="no-selection"><UserRound /><h2>Add your first learner</h2><p>Use the form on the left to create a profile.</p></div>}
+          <UpdatePanel updates={services.updates} />
         </section>
       </div>
     </main>

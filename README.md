@@ -17,10 +17,11 @@ Learner profiles, parent settings, private values, and progress stay in the oper
 - PIN-protected Parent Mode
 - Generic private-value and game-requirement system
 - Guided Student ID Practice with matching-digit colors, keypad sounds, success chimes, and mouse, touch, or keyboard controls
+- Parent-only update checking with signed download, install, and restart support on macOS and Windows
 - Aggregate-only progress history
 - Allow-listed anonymous JSON export
 - Schema migration backups
-- Signed GitHub release updater foundation
+- Cryptographically signed GitHub release updater
 - macOS Apple Silicon, macOS Intel, and Windows x64 release workflow
 
 ## Develop locally
@@ -57,7 +58,7 @@ After the first desktop release is published, use these one-line installers.
 curl -fsSL https://github.com/ooberguts/clever-cove/releases/latest/download/install.sh | bash
 ```
 
-Until an installer script is added, open the latest release in a browser and download the `.dmg` matching your Mac. Apple Silicon builds use `aarch64`; Intel builds use `x64`.
+Or open the latest release in a browser and download the `.dmg` matching your Mac. Apple Silicon builds use `aarch64`; Intel builds use `x64`.
 
 ### Windows x64 (PowerShell)
 
@@ -65,7 +66,9 @@ Until an installer script is added, open the latest release in a browser and dow
 irm https://github.com/ooberguts/clever-cove/releases/latest/download/install.ps1 | iex
 ```
 
-Until an installer script is added, download the `.msi` or `-setup.exe` from the latest release and run it.
+Or download the `.msi` or `-setup.exe` from the latest release and run it.
+
+After installation, a parent can open **Parent Mode → App updates** to check, install, and restart into a newer signed version.
 
 ## Project documentation
 
