@@ -6,6 +6,7 @@ import { ProfileService } from "./profileService";
 import { ProgressService } from "./progressService";
 import { createStorage } from "./storage";
 import { UpdateService } from "./updateService";
+import { GameSoundService } from "./gameSoundService";
 
 export function createServices() {
   const appData = new AppDataService(createStorage());
@@ -17,6 +18,7 @@ export function createServices() {
     progress: new ProgressService(appData),
     anonymousExport: new AnonymousExportService(appData),
     updates: new UpdateService(),
+    sounds: new GameSoundService(),
   };
 }
 

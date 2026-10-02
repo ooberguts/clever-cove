@@ -16,7 +16,7 @@ CleverCove is a local-first Tauri 2 desktop application. React components never 
 
 ## Privacy boundary
 
-Private values are reachable only through `PrivateValueService`; public profiles never include them. A game may ask whether a value matches but must not put the expected value or candidate into progress. Anonymous exports are constructed from safe aggregate fields.
+Private values are reachable only through `PrivateValueService`; public profiles never include them. A guided practice game may request its own declared private value when the parent has chosen a learning mode that displays it. The Student ID game uses this narrow path to show the local practice reference, but neither the expected value nor the candidate may be put into progress. Anonymous exports are constructed from safe aggregate fields.
 
 The application has no telemetry, analytics, advertising, cloud backend, or network API. The only optional network feature is the signed GitHub release updater.
 

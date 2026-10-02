@@ -6,7 +6,7 @@ export const STUDENT_ID_GAME_ID = "life-skills.student-id";
 export const studentIdManifest: GameManifest = {
   id: STUDENT_ID_GAME_ID,
   title: "Student ID Practice",
-  description: "Practice entering your school student ID.",
+  description: "See and practice entering your school student ID.",
   supportedGrades: GRADES,
   subject: "life-skills",
   skillIds: ["life-skills.student-id-entry", "input.numeric-keypad"],

@@ -6,7 +6,7 @@
 4. Add the manifest to `gameRegistry` in `src/games/registry.ts`.
 5. Add the component route to the application shell. The shell should pass services and the selected public learner profile into the game.
 6. Use `ProgressService` for aggregate counters. Never persist raw learner responses unless a new, privacy-reviewed interface explicitly allows that data.
-7. Use `PrivateValueService.matches()` when a game needs to check a private value. Do not fetch or render the configured value.
+7. Use `PrivateValueService.matches()` when a game only needs to check a private value. `getForGuidedPractice()` is reserved for an explicitly parent-configured learning experience that must display its own reference value; document and test that exception.
 8. Extend `AnonymousExportService` with an explicit allow-list of safe statistics. Do not serialize stored learner objects.
 
 ## Manifest example

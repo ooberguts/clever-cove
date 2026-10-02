@@ -7,6 +7,7 @@ import { ProfileService } from "../services/profileService";
 import { ProgressService } from "../services/progressService";
 import type { AppStorage } from "../services/storage";
 import { UpdateService } from "../services/updateService";
+import { GameSoundService } from "../services/gameSoundService";
 
 export class MemoryStorage implements AppStorage {
   data: AppData | null = null;
@@ -30,6 +31,7 @@ export async function createTestServices() {
       progress: new ProgressService(appData),
       anonymousExport: new AnonymousExportService(appData),
       updates: new UpdateService(),
+      sounds: new GameSoundService(),
     },
   };
 }

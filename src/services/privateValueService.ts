@@ -34,6 +34,11 @@ export class PrivateValueService {
     return learner?.privateValues[key]?.length ?? 0;
   }
 
+  getForGuidedPractice(learnerId: string, key: PrivateSettingKey): string {
+    const learner = this.appData.get().learners.find((item) => item.id === learnerId);
+    return learner?.privateValues[key] ?? "";
+  }
+
   async set(learnerId: string, key: PrivateSettingKey, value: string): Promise<void> {
     const validationError = this.validate(key, value);
     if (validationError) throw new Error(validationError);

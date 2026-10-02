@@ -16,7 +16,7 @@ Learner profiles, parent settings, private values, and progress stay in the oper
 - Multiple local learner profiles for grades K–12
 - PIN-protected Parent Mode
 - Generic private-value and game-requirement system
-- Student ID Practice with mouse, touch, and keyboard controls
+- Guided Student ID Practice with matching-digit colors, keypad sounds, success chimes, and mouse, touch, or keyboard controls
 - Aggregate-only progress history
 - Allow-listed anonymous JSON export
 - Schema migration backups

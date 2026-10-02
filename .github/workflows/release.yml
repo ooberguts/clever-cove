@@ -21,8 +21,8 @@ jobs:
             args: --target x86_64-pc-windows-msvc
     runs-on: ${{ matrix.platform }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -37,10 +37,10 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
           tagName: v__VERSION__
-          releaseName: PinPad Academy v__VERSION__
+          releaseName: CleverCove v__VERSION__
           releaseBody: Download the installer for your computer from the Assets section below.
           releaseDraft: true
-          prerelease: false
+          prerelease: true
           args: ${{ matrix.args }}
 
   attach-installers:
@@ -49,7 +49,9 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - run: gh release upload "${GITHUB_REF_NAME}" scripts/install.sh scripts/install.ps1 --clobber
+      - uses: actions/checkout@v5
+      - id: version
+        run: echo "tag=v$(jq -r .version package.json)" >> "$GITHUB_OUTPUT"
+      - run: gh release upload "${{ steps.version.outputs.tag }}" scripts/install.sh scripts/install.ps1 --clobber
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

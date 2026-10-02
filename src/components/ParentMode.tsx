@@ -32,7 +32,7 @@ export function ParentMode({ services, learners, onRefresh, onExit }: ParentMode
     if (!selected) return;
     try {
       await services.privateValues.set(selected.id, "private.student_id", studentId);
-      setStudentId(""); setMessage("Student ID saved privately. The game is now unlocked."); onRefresh();
+      setStudentId(""); setMessage("Student ID saved locally. Guided practice is now unlocked."); onRefresh();
     } catch (caught) { setError(caught instanceof Error ? caught.message : "Could not save Student ID."); }
   };
 
@@ -74,7 +74,7 @@ export function ParentMode({ services, learners, onRefresh, onExit }: ParentMode
               <div className="settings-title"><div className="avatar-large">{selected.displayName[0].toUpperCase()}</div><div><span className="eyebrow">LEARNER SETTINGS</span><h2>{selected.displayName}</h2><p>Grade {selected.grade}</p></div></div>
               <article className="setting-card">
                 <div className="setting-card-heading"><div className="setting-icon"><UserRound /></div><div><h3>Student ID Practice</h3><p>Set the number {selected.displayName} practices entering at school.</p></div>{services.privateValues.isConfigured(selected.id, "private.student_id") && <span className="configured"><Check /> Configured</span>}</div>
-                <div className="privacy-note"><ShieldCheck /><span><strong>Private value</strong> — never shown in learner view, progress history, or anonymous exports.</span></div>
+                <div className="privacy-note"><ShieldCheck /><span><strong>Guided practice value</strong> — shown only inside this learner’s practice game. It is never added to progress history or anonymous exports.</span></div>
                 <form className="setting-form" onSubmit={saveStudentId}>
                   <label htmlFor="student-id">Student ID</label>
                   <div className="setting-input-row"><input id="student-id" type="password" inputMode="numeric" pattern="[0-9]{1,12}" maxLength={12} placeholder={services.privateValues.isConfigured(selected.id, "private.student_id") ? "••••••  (saved)" : "1–12 numbers"} value={studentId} onChange={(event) => setStudentId(event.target.value.replace(/\D/g, ""))} /><button className="primary-button" type="submit"><Save /> {services.privateValues.isConfigured(selected.id, "private.student_id") ? "Replace" : "Save"}</button></div>
