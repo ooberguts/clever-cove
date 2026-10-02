@@ -1,5 +1,6 @@
 import type { Grade, LearnerProfile, StoredLearner } from "../domain/models";
 import { AppDataService } from "./appDataService";
+import { DEFAULT_LEARNER_PREFERENCES } from "./appDataService";
 
 export class ProfileService {
   constructor(private readonly appData: AppDataService) {}
@@ -21,8 +22,10 @@ export class ProfileService {
       displayName: trimmedName,
       grade,
       createdAt: new Date().toISOString(),
-      schemaVersion: 1,
+      schemaVersion: 2,
       progress: {},
+      learningProgress: {},
+      preferences: structuredClone(DEFAULT_LEARNER_PREFERENCES),
       gameConfigurationRefs: [],
       privateValues: {},
     };
@@ -55,6 +58,8 @@ export class ProfileService {
       createdAt: learner.createdAt,
       schemaVersion: learner.schemaVersion,
       progress: learner.progress,
+      learningProgress: learner.learningProgress,
+      preferences: learner.preferences,
       gameConfigurationRefs: learner.gameConfigurationRefs,
     });
   }

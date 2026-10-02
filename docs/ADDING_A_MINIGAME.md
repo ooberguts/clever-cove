@@ -8,6 +8,9 @@
 6. Use `ProgressService` for aggregate counters. Never persist raw learner responses unless a new, privacy-reviewed interface explicitly allows that data.
 7. Use `PrivateValueService.matches()` when a game only needs to check a private value. `getForGuidedPractice()` is reserved for an explicitly parent-configured learning experience that must display its own reference value; document and test that exception.
 8. Extend `AnonymousExportService` with an explicit allow-list of safe statistics. Do not serialize stored learner objects.
+9. Reuse records from `src/content` for curriculum items. Add stable IDs to a content pack instead of hard-coding teaching lists in a React component.
+10. Play spoken curriculum audio with `AudioService.play(audioId)`. Never construct `public/audio` paths in game code, and keep playback usable when a clip is unavailable.
+11. Use `recordLearningAttempt()` when the game has a stable skill/content pair that should appear in anonymous educational aggregates.
 
 ## Manifest example
 

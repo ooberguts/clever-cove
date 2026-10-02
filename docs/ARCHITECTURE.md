@@ -7,12 +7,15 @@ CleverCove is a local-first Tauri 2 desktop application. React components never 
 - **Application shell** — `src/App.tsx` owns navigation between the learner dashboard, Parent Mode, and games.
 - **Profiles** — `ProfileService` exposes only public learner information. It deliberately strips `privateValues`.
 - **Parent settings** — `ParentSettingsService` stores a salted hash of the local PIN. The raw PIN is never persisted.
+- **Learning preferences** — `LearningPreferencesService` stores non-sensitive per-learner counting, letter-focus, and word-group choices.
 - **Private values** — `PrivateValueService` owns validation, configuration status, updates, and comparisons for parent-provided secrets.
+- **Learning content** — `src/content` owns stable number, letter, phoneme, word, term, distractor, and audio IDs. Games consume catalog records rather than embedding curriculum lists.
+- **Local speech** — `AudioService` resolves stable IDs through the bundled audio manifest. Spoken assets work offline and missing playback is contained without crashing a game.
 - **Game registry** — `src/games/registry.ts` is the catalog used by the dashboard. Required settings are resolved from each manifest.
-- **Progress** — `ProgressService` records aggregate counters and timestamps. It has no API for raw answers.
+- **Progress** — `ProgressService` records game totals plus aggregate skill/content counters and timestamps. It has no API for raw answers.
 - **Anonymous exports** — `AnonymousExportService` builds a new allow-listed object rather than filtering the storage object.
 - **Updates** — `UpdateService` wraps the Tauri updater and process plugins. `UpdatePanel` keeps checking and restart controls behind Parent Mode.
-- **Storage and migrations** — `AppDataService` owns the current schema and creates a backup before migration. Tauri Store persists into the operating system app-data directory. Browser local storage is used only for development preview and tests.
+- **Storage and migrations** — `AppDataService` owns the current schema and creates a backup before migration. Schema 2 adds Kindergarten preferences and content-level aggregate progress. Tauri Store persists into the operating system app-data directory. Browser local storage is used only for development preview and tests.
 
 ## Privacy boundary
 

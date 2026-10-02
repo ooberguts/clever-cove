@@ -1,6 +1,6 @@
 # CleverCove
 
-A private, local-first educational desktop app built with React, TypeScript, Vite, and Tauri 2. The first production game helps a learner practice entering a student ID on the exact school-style keypad layout:
+A private, local-first educational desktop app built with React, TypeScript, Vite, and Tauri 2. It includes a Kindergarten learning pack plus guided Student ID practice on the exact school-style keypad layout:
 
 ```text
 7      8      9
@@ -14,8 +14,13 @@ Learner profiles, parent settings, private values, and progress stay in the oper
 ## Features
 
 - Multiple local learner profiles for grades K–12
+- Parent editing for learner names, grades, and per-learner practice settings
 - PIN-protected Parent Mode
 - Generic private-value and game-requirement system
+- Kindergarten Counting Practice with 1–25, 1–50, and 1–100 modes
+- A–Z Letter Sound Match and four-term Tricky Word Match
+- Bundled offline spoken audio addressed by stable curriculum IDs
+- Development-time content validation and macOS audio generation
 - Guided Student ID Practice with matching-digit colors, keypad sounds, success chimes, and mouse, touch, or keyboard controls
 - Parent-only update checking with signed download, install, and restart support on macOS and Windows
 - Aggregate-only progress history
@@ -46,6 +51,7 @@ npm run lint
 npm run typecheck
 npm test
 npm run build
+npm run content:validate
 ```
 
 ## Install from GitHub Releases
@@ -74,3 +80,7 @@ After installation, a parent can open **Parent Mode → App updates** to check, 
 
 - [Architecture](docs/ARCHITECTURE.md)
 - [Adding a minigame](docs/ADDING_A_MINIGAME.md)
+- [Learning content](docs/LEARNING_CONTENT.md)
+- [Local audio assets](docs/AUDIO_ASSETS.md)
+- [Learner profile schema](docs/PROFILE_SCHEMA.md)
+- [Privacy model](docs/PRIVACY.md)

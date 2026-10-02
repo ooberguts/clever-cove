@@ -1,6 +1,26 @@
 export const GRADES = ["K", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"] as const;
 export type Grade = (typeof GRADES)[number];
 
+export const COUNTING_MAXIMUMS = [25, 50, 100] as const;
+export type CountingMaximum = (typeof COUNTING_MAXIMUMS)[number];
+
+export const TRICKY_WORD_GROUPS = ["tricky.term-1", "tricky.term-2", "tricky.term-3", "tricky.term-4", "all"] as const;
+export type TrickyWordGroup = (typeof TRICKY_WORD_GROUPS)[number];
+
+export interface LearnerPreferences {
+  countingMaximum: CountingMaximum;
+  letterFocusIds: string[];
+  trickyWordGroup: TrickyWordGroup;
+}
+
+export interface LearningContentProgress {
+  skillId: string;
+  contentId: string;
+  attempts: number;
+  correct: number;
+  lastPracticedAt?: string;
+}
+
 export interface GameProgress {
   gameId: string;
   attempts: number;
@@ -17,6 +37,8 @@ export interface LearnerProfile {
   createdAt: string;
   schemaVersion: number;
   progress: Record<string, GameProgress>;
+  learningProgress: Record<string, LearningContentProgress>;
+  preferences: LearnerPreferences;
   gameConfigurationRefs: string[];
 }
 
@@ -48,14 +70,29 @@ export interface AnonymousGameExport {
   attempts: number;
   successes: number;
   success_rate: number;
+  completed_rounds: number;
+  sessions: number;
+}
+
+export interface AnonymousLearningExport {
+  skill_id: string;
+  content_id: string;
+  attempts: number;
+  correct: number;
 }
 
 export interface AnonymousExport {
-  export_version: 1;
+  export_version: 2;
   generated_at: string;
   learners: Array<{
     anonymous_id: string;
     grade: Grade;
     games: AnonymousGameExport[];
+    learning_preferences: {
+      counting_maximum: CountingMaximum;
+      letter_focus_count: number;
+      tricky_word_group: TrickyWordGroup;
+    };
+    learning: AnonymousLearningExport[];
   }>;
 }

@@ -1,7 +1,13 @@
-import type { AppData } from "../domain/models";
+import type { AppData, LearnerPreferences, StoredLearner } from "../domain/models";
 import type { AppStorage } from "./storage";
 
-export const CURRENT_SCHEMA_VERSION = 1;
+export const CURRENT_SCHEMA_VERSION = 2;
+
+export const DEFAULT_LEARNER_PREFERENCES: LearnerPreferences = {
+  countingMaximum: 25,
+  letterFocusIds: [],
+  trickyWordGroup: "all",
+};
 
 const EMPTY_DATA: AppData = {
   schemaVersion: CURRENT_SCHEMA_VERSION,
@@ -44,6 +50,15 @@ export class AppDataService {
   private migrate(data: AppData): AppData {
     const migrated = structuredClone(data);
     while (migrated.schemaVersion < CURRENT_SCHEMA_VERSION) {
+      if (migrated.schemaVersion === 1) {
+        for (const learner of migrated.learners as StoredLearner[]) {
+          learner.preferences = structuredClone(DEFAULT_LEARNER_PREFERENCES);
+          learner.learningProgress = {};
+          learner.schemaVersion = 2;
+        }
+        migrated.schemaVersion = 2;
+        continue;
+      }
       throw new Error(`No migration is available for schema ${migrated.schemaVersion}.`);
     }
     return migrated;

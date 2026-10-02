@@ -1,0 +1,1535 @@
+[
+  {
+    "id": "letter.a.name",
+    "kind": "letter-name",
+    "text": "A",
+    "path": "audio/letter-names/a.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.b.name",
+    "kind": "letter-name",
+    "text": "B",
+    "path": "audio/letter-names/b.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.c.name",
+    "kind": "letter-name",
+    "text": "C",
+    "path": "audio/letter-names/c.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.d.name",
+    "kind": "letter-name",
+    "text": "D",
+    "path": "audio/letter-names/d.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.e.name",
+    "kind": "letter-name",
+    "text": "E",
+    "path": "audio/letter-names/e.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.f.name",
+    "kind": "letter-name",
+    "text": "F",
+    "path": "audio/letter-names/f.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.g.name",
+    "kind": "letter-name",
+    "text": "G",
+    "path": "audio/letter-names/g.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.h.name",
+    "kind": "letter-name",
+    "text": "H",
+    "path": "audio/letter-names/h.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.i.name",
+    "kind": "letter-name",
+    "text": "I",
+    "path": "audio/letter-names/i.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.j.name",
+    "kind": "letter-name",
+    "text": "J",
+    "path": "audio/letter-names/j.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.k.name",
+    "kind": "letter-name",
+    "text": "K",
+    "path": "audio/letter-names/k.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.l.name",
+    "kind": "letter-name",
+    "text": "L",
+    "path": "audio/letter-names/l.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.m.name",
+    "kind": "letter-name",
+    "text": "M",
+    "path": "audio/letter-names/m.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.n.name",
+    "kind": "letter-name",
+    "text": "N",
+    "path": "audio/letter-names/n.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.o.name",
+    "kind": "letter-name",
+    "text": "O",
+    "path": "audio/letter-names/o.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.p.name",
+    "kind": "letter-name",
+    "text": "P",
+    "path": "audio/letter-names/p.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.q.name",
+    "kind": "letter-name",
+    "text": "Q",
+    "path": "audio/letter-names/q.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.r.name",
+    "kind": "letter-name",
+    "text": "R",
+    "path": "audio/letter-names/r.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.s.name",
+    "kind": "letter-name",
+    "text": "S",
+    "path": "audio/letter-names/s.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.t.name",
+    "kind": "letter-name",
+    "text": "T",
+    "path": "audio/letter-names/t.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.u.name",
+    "kind": "letter-name",
+    "text": "U",
+    "path": "audio/letter-names/u.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.v.name",
+    "kind": "letter-name",
+    "text": "V",
+    "path": "audio/letter-names/v.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.w.name",
+    "kind": "letter-name",
+    "text": "W",
+    "path": "audio/letter-names/w.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.x.name",
+    "kind": "letter-name",
+    "text": "X",
+    "path": "audio/letter-names/x.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.y.name",
+    "kind": "letter-name",
+    "text": "Y",
+    "path": "audio/letter-names/y.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "letter.z.name",
+    "kind": "letter-name",
+    "text": "Z",
+    "path": "audio/letter-names/z.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.1",
+    "kind": "number",
+    "text": "1",
+    "path": "audio/numbers/1.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.2",
+    "kind": "number",
+    "text": "2",
+    "path": "audio/numbers/2.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.3",
+    "kind": "number",
+    "text": "3",
+    "path": "audio/numbers/3.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.4",
+    "kind": "number",
+    "text": "4",
+    "path": "audio/numbers/4.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.5",
+    "kind": "number",
+    "text": "5",
+    "path": "audio/numbers/5.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.6",
+    "kind": "number",
+    "text": "6",
+    "path": "audio/numbers/6.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.7",
+    "kind": "number",
+    "text": "7",
+    "path": "audio/numbers/7.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.8",
+    "kind": "number",
+    "text": "8",
+    "path": "audio/numbers/8.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.9",
+    "kind": "number",
+    "text": "9",
+    "path": "audio/numbers/9.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.10",
+    "kind": "number",
+    "text": "10",
+    "path": "audio/numbers/10.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.11",
+    "kind": "number",
+    "text": "11",
+    "path": "audio/numbers/11.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.12",
+    "kind": "number",
+    "text": "12",
+    "path": "audio/numbers/12.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.13",
+    "kind": "number",
+    "text": "13",
+    "path": "audio/numbers/13.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.14",
+    "kind": "number",
+    "text": "14",
+    "path": "audio/numbers/14.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.15",
+    "kind": "number",
+    "text": "15",
+    "path": "audio/numbers/15.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.16",
+    "kind": "number",
+    "text": "16",
+    "path": "audio/numbers/16.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.17",
+    "kind": "number",
+    "text": "17",
+    "path": "audio/numbers/17.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.18",
+    "kind": "number",
+    "text": "18",
+    "path": "audio/numbers/18.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.19",
+    "kind": "number",
+    "text": "19",
+    "path": "audio/numbers/19.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.20",
+    "kind": "number",
+    "text": "20",
+    "path": "audio/numbers/20.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.21",
+    "kind": "number",
+    "text": "21",
+    "path": "audio/numbers/21.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.22",
+    "kind": "number",
+    "text": "22",
+    "path": "audio/numbers/22.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.23",
+    "kind": "number",
+    "text": "23",
+    "path": "audio/numbers/23.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.24",
+    "kind": "number",
+    "text": "24",
+    "path": "audio/numbers/24.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.25",
+    "kind": "number",
+    "text": "25",
+    "path": "audio/numbers/25.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.26",
+    "kind": "number",
+    "text": "26",
+    "path": "audio/numbers/26.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.27",
+    "kind": "number",
+    "text": "27",
+    "path": "audio/numbers/27.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.28",
+    "kind": "number",
+    "text": "28",
+    "path": "audio/numbers/28.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.29",
+    "kind": "number",
+    "text": "29",
+    "path": "audio/numbers/29.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.30",
+    "kind": "number",
+    "text": "30",
+    "path": "audio/numbers/30.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.31",
+    "kind": "number",
+    "text": "31",
+    "path": "audio/numbers/31.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.32",
+    "kind": "number",
+    "text": "32",
+    "path": "audio/numbers/32.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.33",
+    "kind": "number",
+    "text": "33",
+    "path": "audio/numbers/33.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.34",
+    "kind": "number",
+    "text": "34",
+    "path": "audio/numbers/34.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.35",
+    "kind": "number",
+    "text": "35",
+    "path": "audio/numbers/35.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.36",
+    "kind": "number",
+    "text": "36",
+    "path": "audio/numbers/36.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.37",
+    "kind": "number",
+    "text": "37",
+    "path": "audio/numbers/37.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.38",
+    "kind": "number",
+    "text": "38",
+    "path": "audio/numbers/38.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.39",
+    "kind": "number",
+    "text": "39",
+    "path": "audio/numbers/39.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.40",
+    "kind": "number",
+    "text": "40",
+    "path": "audio/numbers/40.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.41",
+    "kind": "number",
+    "text": "41",
+    "path": "audio/numbers/41.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.42",
+    "kind": "number",
+    "text": "42",
+    "path": "audio/numbers/42.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.43",
+    "kind": "number",
+    "text": "43",
+    "path": "audio/numbers/43.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.44",
+    "kind": "number",
+    "text": "44",
+    "path": "audio/numbers/44.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.45",
+    "kind": "number",
+    "text": "45",
+    "path": "audio/numbers/45.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.46",
+    "kind": "number",
+    "text": "46",
+    "path": "audio/numbers/46.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.47",
+    "kind": "number",
+    "text": "47",
+    "path": "audio/numbers/47.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.48",
+    "kind": "number",
+    "text": "48",
+    "path": "audio/numbers/48.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.49",
+    "kind": "number",
+    "text": "49",
+    "path": "audio/numbers/49.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.50",
+    "kind": "number",
+    "text": "50",
+    "path": "audio/numbers/50.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.51",
+    "kind": "number",
+    "text": "51",
+    "path": "audio/numbers/51.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.52",
+    "kind": "number",
+    "text": "52",
+    "path": "audio/numbers/52.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.53",
+    "kind": "number",
+    "text": "53",
+    "path": "audio/numbers/53.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.54",
+    "kind": "number",
+    "text": "54",
+    "path": "audio/numbers/54.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.55",
+    "kind": "number",
+    "text": "55",
+    "path": "audio/numbers/55.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.56",
+    "kind": "number",
+    "text": "56",
+    "path": "audio/numbers/56.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.57",
+    "kind": "number",
+    "text": "57",
+    "path": "audio/numbers/57.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.58",
+    "kind": "number",
+    "text": "58",
+    "path": "audio/numbers/58.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.59",
+    "kind": "number",
+    "text": "59",
+    "path": "audio/numbers/59.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.60",
+    "kind": "number",
+    "text": "60",
+    "path": "audio/numbers/60.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.61",
+    "kind": "number",
+    "text": "61",
+    "path": "audio/numbers/61.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.62",
+    "kind": "number",
+    "text": "62",
+    "path": "audio/numbers/62.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.63",
+    "kind": "number",
+    "text": "63",
+    "path": "audio/numbers/63.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.64",
+    "kind": "number",
+    "text": "64",
+    "path": "audio/numbers/64.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.65",
+    "kind": "number",
+    "text": "65",
+    "path": "audio/numbers/65.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.66",
+    "kind": "number",
+    "text": "66",
+    "path": "audio/numbers/66.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.67",
+    "kind": "number",
+    "text": "67",
+    "path": "audio/numbers/67.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.68",
+    "kind": "number",
+    "text": "68",
+    "path": "audio/numbers/68.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.69",
+    "kind": "number",
+    "text": "69",
+    "path": "audio/numbers/69.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.70",
+    "kind": "number",
+    "text": "70",
+    "path": "audio/numbers/70.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.71",
+    "kind": "number",
+    "text": "71",
+    "path": "audio/numbers/71.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.72",
+    "kind": "number",
+    "text": "72",
+    "path": "audio/numbers/72.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.73",
+    "kind": "number",
+    "text": "73",
+    "path": "audio/numbers/73.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.74",
+    "kind": "number",
+    "text": "74",
+    "path": "audio/numbers/74.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.75",
+    "kind": "number",
+    "text": "75",
+    "path": "audio/numbers/75.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.76",
+    "kind": "number",
+    "text": "76",
+    "path": "audio/numbers/76.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.77",
+    "kind": "number",
+    "text": "77",
+    "path": "audio/numbers/77.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.78",
+    "kind": "number",
+    "text": "78",
+    "path": "audio/numbers/78.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.79",
+    "kind": "number",
+    "text": "79",
+    "path": "audio/numbers/79.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.80",
+    "kind": "number",
+    "text": "80",
+    "path": "audio/numbers/80.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.81",
+    "kind": "number",
+    "text": "81",
+    "path": "audio/numbers/81.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.82",
+    "kind": "number",
+    "text": "82",
+    "path": "audio/numbers/82.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.83",
+    "kind": "number",
+    "text": "83",
+    "path": "audio/numbers/83.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.84",
+    "kind": "number",
+    "text": "84",
+    "path": "audio/numbers/84.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.85",
+    "kind": "number",
+    "text": "85",
+    "path": "audio/numbers/85.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.86",
+    "kind": "number",
+    "text": "86",
+    "path": "audio/numbers/86.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.87",
+    "kind": "number",
+    "text": "87",
+    "path": "audio/numbers/87.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.88",
+    "kind": "number",
+    "text": "88",
+    "path": "audio/numbers/88.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.89",
+    "kind": "number",
+    "text": "89",
+    "path": "audio/numbers/89.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.90",
+    "kind": "number",
+    "text": "90",
+    "path": "audio/numbers/90.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.91",
+    "kind": "number",
+    "text": "91",
+    "path": "audio/numbers/91.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.92",
+    "kind": "number",
+    "text": "92",
+    "path": "audio/numbers/92.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.93",
+    "kind": "number",
+    "text": "93",
+    "path": "audio/numbers/93.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.94",
+    "kind": "number",
+    "text": "94",
+    "path": "audio/numbers/94.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.95",
+    "kind": "number",
+    "text": "95",
+    "path": "audio/numbers/95.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.96",
+    "kind": "number",
+    "text": "96",
+    "path": "audio/numbers/96.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.97",
+    "kind": "number",
+    "text": "97",
+    "path": "audio/numbers/97.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.98",
+    "kind": "number",
+    "text": "98",
+    "path": "audio/numbers/98.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.99",
+    "kind": "number",
+    "text": "99",
+    "path": "audio/numbers/99.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "number.100",
+    "kind": "number",
+    "text": "100",
+    "path": "audio/numbers/100.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "phoneme.a",
+    "kind": "phoneme",
+    "text": "a",
+    "path": "audio/phonemes/a.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.b",
+    "kind": "phoneme",
+    "text": "b",
+    "path": "audio/phonemes/b.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.c",
+    "kind": "phoneme",
+    "text": "c",
+    "path": "audio/phonemes/c.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.d",
+    "kind": "phoneme",
+    "text": "d",
+    "path": "audio/phonemes/d.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.e",
+    "kind": "phoneme",
+    "text": "e",
+    "path": "audio/phonemes/e.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.f",
+    "kind": "phoneme",
+    "text": "f",
+    "path": "audio/phonemes/f.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.g",
+    "kind": "phoneme",
+    "text": "g",
+    "path": "audio/phonemes/g.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.h",
+    "kind": "phoneme",
+    "text": "h",
+    "path": "audio/phonemes/h.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.i",
+    "kind": "phoneme",
+    "text": "i",
+    "path": "audio/phonemes/i.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.j",
+    "kind": "phoneme",
+    "text": "j",
+    "path": "audio/phonemes/j.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.k",
+    "kind": "phoneme",
+    "text": "k",
+    "path": "audio/phonemes/k.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.l",
+    "kind": "phoneme",
+    "text": "l",
+    "path": "audio/phonemes/l.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.m",
+    "kind": "phoneme",
+    "text": "m",
+    "path": "audio/phonemes/m.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.n",
+    "kind": "phoneme",
+    "text": "n",
+    "path": "audio/phonemes/n.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.o",
+    "kind": "phoneme",
+    "text": "o",
+    "path": "audio/phonemes/o.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.p",
+    "kind": "phoneme",
+    "text": "p",
+    "path": "audio/phonemes/p.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.q",
+    "kind": "phoneme",
+    "text": "q",
+    "path": "audio/phonemes/q.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.r",
+    "kind": "phoneme",
+    "text": "r",
+    "path": "audio/phonemes/r.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.s",
+    "kind": "phoneme",
+    "text": "s",
+    "path": "audio/phonemes/s.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.t",
+    "kind": "phoneme",
+    "text": "t",
+    "path": "audio/phonemes/t.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.u",
+    "kind": "phoneme",
+    "text": "u",
+    "path": "audio/phonemes/u.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.v",
+    "kind": "phoneme",
+    "text": "v",
+    "path": "audio/phonemes/v.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.w",
+    "kind": "phoneme",
+    "text": "w",
+    "path": "audio/phonemes/w.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.x",
+    "kind": "phoneme",
+    "text": "x",
+    "path": "audio/phonemes/x.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.y",
+    "kind": "phoneme",
+    "text": "y",
+    "path": "audio/phonemes/y.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "phoneme.z",
+    "kind": "phoneme",
+    "text": "z",
+    "path": "audio/phonemes/z.wav",
+    "reviewStatus": "adult-review-required"
+  },
+  {
+    "id": "prompt.counting.count-along",
+    "kind": "prompt",
+    "text": "Count along. Tap each number.",
+    "path": "audio/prompts/counting/count-along.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "prompt.counting.hear-the-number",
+    "kind": "prompt",
+    "text": "Which number did you hear?",
+    "path": "audio/prompts/counting/hear-the-number.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "prompt.counting.what-comes-next",
+    "kind": "prompt",
+    "text": "What comes next?",
+    "path": "audio/prompts/counting/what-comes-next.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "prompt.reading.letter-sound-match",
+    "kind": "prompt",
+    "text": "Which letter makes this sound?",
+    "path": "audio/prompts/reading/letter-sound-match.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "prompt.reading.tricky-word-match",
+    "kind": "prompt",
+    "text": "Which word did you hear?",
+    "path": "audio/prompts/reading/tricky-word-match.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.a",
+    "kind": "word",
+    "text": "a",
+    "path": "audio/words/a.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.all",
+    "kind": "word",
+    "text": "all",
+    "path": "audio/words/all.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.am",
+    "kind": "word",
+    "text": "am",
+    "path": "audio/words/am.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.an",
+    "kind": "word",
+    "text": "an",
+    "path": "audio/words/an.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.and",
+    "kind": "word",
+    "text": "and",
+    "path": "audio/words/and.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.are",
+    "kind": "word",
+    "text": "are",
+    "path": "audio/words/are.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.at",
+    "kind": "word",
+    "text": "at",
+    "path": "audio/words/at.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.be",
+    "kind": "word",
+    "text": "be",
+    "path": "audio/words/be.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.blue",
+    "kind": "word",
+    "text": "blue",
+    "path": "audio/words/blue.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.by",
+    "kind": "word",
+    "text": "by",
+    "path": "audio/words/by.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.can",
+    "kind": "word",
+    "text": "can",
+    "path": "audio/words/can.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.come",
+    "kind": "word",
+    "text": "come",
+    "path": "audio/words/come.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.do",
+    "kind": "word",
+    "text": "do",
+    "path": "audio/words/do.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.down",
+    "kind": "word",
+    "text": "down",
+    "path": "audio/words/down.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.for",
+    "kind": "word",
+    "text": "for",
+    "path": "audio/words/for.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.from",
+    "kind": "word",
+    "text": "from",
+    "path": "audio/words/from.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.funny",
+    "kind": "word",
+    "text": "funny",
+    "path": "audio/words/funny.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.go",
+    "kind": "word",
+    "text": "go",
+    "path": "audio/words/go.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.he",
+    "kind": "word",
+    "text": "he",
+    "path": "audio/words/he.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.here",
+    "kind": "word",
+    "text": "here",
+    "path": "audio/words/here.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.I",
+    "kind": "word",
+    "text": "I",
+    "path": "audio/words/I.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.in",
+    "kind": "word",
+    "text": "in",
+    "path": "audio/words/in.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.is",
+    "kind": "word",
+    "text": "is",
+    "path": "audio/words/is.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.it",
+    "kind": "word",
+    "text": "it",
+    "path": "audio/words/it.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.like",
+    "kind": "word",
+    "text": "like",
+    "path": "audio/words/like.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.little",
+    "kind": "word",
+    "text": "little",
+    "path": "audio/words/little.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.look",
+    "kind": "word",
+    "text": "look",
+    "path": "audio/words/look.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.me",
+    "kind": "word",
+    "text": "me",
+    "path": "audio/words/me.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.my",
+    "kind": "word",
+    "text": "my",
+    "path": "audio/words/my.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.no",
+    "kind": "word",
+    "text": "no",
+    "path": "audio/words/no.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.of",
+    "kind": "word",
+    "text": "of",
+    "path": "audio/words/of.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.on",
+    "kind": "word",
+    "text": "on",
+    "path": "audio/words/on.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.once",
+    "kind": "word",
+    "text": "once",
+    "path": "audio/words/once.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.one",
+    "kind": "word",
+    "text": "one",
+    "path": "audio/words/one.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.out",
+    "kind": "word",
+    "text": "out",
+    "path": "audio/words/out.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.said",
+    "kind": "word",
+    "text": "said",
+    "path": "audio/words/said.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.says",
+    "kind": "word",
+    "text": "says",
+    "path": "audio/words/says.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.see",
+    "kind": "word",
+    "text": "see",
+    "path": "audio/words/see.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.she",
+    "kind": "word",
+    "text": "she",
+    "path": "audio/words/she.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.so",
+    "kind": "word",
+    "text": "so",
+    "path": "audio/words/so.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.the",
+    "kind": "word",
+    "text": "the",
+    "path": "audio/words/the.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.their",
+    "kind": "word",
+    "text": "their",
+    "path": "audio/words/their.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.there",
+    "kind": "word",
+    "text": "there",
+    "path": "audio/words/there.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.they",
+    "kind": "word",
+    "text": "they",
+    "path": "audio/words/they.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.this",
+    "kind": "word",
+    "text": "this",
+    "path": "audio/words/this.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.three",
+    "kind": "word",
+    "text": "three",
+    "path": "audio/words/three.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.to",
+    "kind": "word",
+    "text": "to",
+    "path": "audio/words/to.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.two",
+    "kind": "word",
+    "text": "two",
+    "path": "audio/words/two.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.up",
+    "kind": "word",
+    "text": "up",
+    "path": "audio/words/up.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.was",
+    "kind": "word",
+    "text": "was",
+    "path": "audio/words/was.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.we",
+    "kind": "word",
+    "text": "we",
+    "path": "audio/words/we.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.were",
+    "kind": "word",
+    "text": "were",
+    "path": "audio/words/were.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.what",
+    "kind": "word",
+    "text": "what",
+    "path": "audio/words/what.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.when",
+    "kind": "word",
+    "text": "when",
+    "path": "audio/words/when.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.where",
+    "kind": "word",
+    "text": "where",
+    "path": "audio/words/where.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.which",
+    "kind": "word",
+    "text": "which",
+    "path": "audio/words/which.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.why",
+    "kind": "word",
+    "text": "why",
+    "path": "audio/words/why.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.with",
+    "kind": "word",
+    "text": "with",
+    "path": "audio/words/with.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.word",
+    "kind": "word",
+    "text": "word",
+    "path": "audio/words/word.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.yellow",
+    "kind": "word",
+    "text": "yellow",
+    "path": "audio/words/yellow.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.you",
+    "kind": "word",
+    "text": "you",
+    "path": "audio/words/you.wav",
+    "reviewStatus": "generated"
+  },
+  {
+    "id": "word.your",
+    "kind": "word",
+    "text": "your",
+    "path": "audio/words/your.wav",
+    "reviewStatus": "generated"
+  }
+]

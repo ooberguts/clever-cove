@@ -1,0 +1,6 @@
+{
+  "id": "numbers.kindergarten.1-100",
+  "minimum": 1,
+  "maximum": 100,
+  "supportedPracticeMaximums": [25, 50, 100]
+}

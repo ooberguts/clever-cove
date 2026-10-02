@@ -1,0 +1,116 @@
+.counting-game {
+  --counting-teal: #147c78;
+  --counting-teal-dark: #075b58;
+  --counting-sun: #f7bd45;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(247, 189, 69, .23), transparent 25%),
+    radial-gradient(circle at 92% 8%, rgba(20, 124, 120, .16), transparent 28%),
+    #f9f6ef;
+}
+
+.counting-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 42px);
+  background: #fff;
+  border: 1px solid #e7e0d6;
+  border-radius: 30px;
+  box-shadow: 0 18px 50px rgba(67, 52, 84, .11);
+}
+
+.counting-intro { text-align: center; }
+.counting-intro > span { display: block; font-size: 50px; margin-bottom: 4px; }
+.counting-intro h2, .counting-question-heading h2 { margin: 5px 0; font-size: clamp(27px, 4vw, 38px); }
+.counting-intro p, .counting-along > p { color: #675f6e; font-size: 17px; }
+
+.counting-modes { display: grid; gap: 14px; margin-top: 28px; }
+.counting-mode-button {
+  display: grid;
+  grid-template-columns: 66px 1fr;
+  align-items: center;
+  gap: 16px;
+  min-height: 88px;
+  padding: 12px 18px;
+  text-align: left;
+  border: 2px solid #dfe8e6;
+  border-radius: 22px;
+  color: #2f2938;
+  background: #fbfefd;
+}
+.counting-mode-button:hover, .counting-mode-button:focus-visible { border-color: var(--counting-teal); transform: translateY(-1px); }
+.counting-mode-button strong, .counting-mode-button small { display: block; }
+.counting-mode-button strong { font-size: 21px; }
+.counting-mode-button small { margin-top: 4px; color: #6e6673; font-size: 15px; }
+.counting-mode-icon { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 18px; color: #fff; background: var(--counting-teal); }
+.counting-mode-icon svg { width: 29px; height: 29px; }
+
+.counting-question-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.counting-listen-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 17px;
+  border: 2px solid #bcdedb;
+  border-radius: 16px;
+  color: var(--counting-teal-dark);
+  background: #ecf8f7;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.counting-sequence { display: flex; align-items: center; justify-content: center; gap: clamp(8px, 2vw, 18px); margin: 38px 0 32px; }
+.counting-sequence span {
+  display: grid;
+  place-items: center;
+  width: clamp(60px, 13vw, 88px);
+  aspect-ratio: 1;
+  border-radius: 23px;
+  color: #39313f;
+  background: #f6f1e8;
+  font-size: clamp(31px, 7vw, 48px);
+  font-weight: 900;
+}
+.counting-sequence .counting-mystery { color: var(--counting-teal-dark); background: #dff3f1; }
+.counting-big-speaker { display: grid; place-items: center; width: 112px; height: 112px; margin: 32px auto; border: 0; border-radius: 50%; color: #fff; background: var(--counting-teal); box-shadow: 0 9px 0 #08605d; }
+.counting-big-speaker:hover { transform: translateY(-2px); }
+.counting-big-speaker:active { transform: translateY(5px); box-shadow: 0 4px 0 #08605d; }
+.counting-big-speaker svg { width: 48px; height: 48px; }
+
+.counting-choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.counting-choice {
+  position: relative;
+  min-height: 104px;
+  border: 3px solid #ded7cd;
+  border-radius: 24px;
+  color: #39313f;
+  background: #fff;
+  font-size: clamp(35px, 7vw, 52px);
+  font-weight: 900;
+}
+.counting-choice:not(:disabled):hover, .counting-choice:not(:disabled):focus-visible { border-color: var(--counting-teal); background: #f2fbfa; }
+.counting-choice.is-correct { border-color: #3c9b61; color: #176239; background: #e4f7e9; }
+.counting-choice.is-retry { border-color: #df9a52; color: #875018; background: #fff2df; opacity: .75; }
+.counting-choice svg { position: absolute; top: 8px; right: 8px; width: 24px; }
+
+.counting-feedback { min-height: 57px; display: flex; align-items: center; justify-content: center; gap: 9px; color: #635b68; text-align: center; }
+.counting-feedback svg { color: var(--counting-sun); }
+.counting-feedback strong { font-size: 18px; }
+.counting-next-button { display: block; width: min(100%, 300px); min-height: 58px; margin: 2px auto 0; border: 0; border-radius: 18px; color: #fff; background: var(--counting-teal); font-size: 19px; font-weight: 900; }
+
+.counting-number-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 7px; margin-top: 22px; }
+.counting-number-grid button { min-width: 0; aspect-ratio: 1; border: 2px solid #e0d9cf; border-radius: 12px; color: #403847; background: #fff; font-size: clamp(14px, 2vw, 19px); font-weight: 900; }
+.counting-number-grid button:hover, .counting-number-grid button:focus-visible { border-color: var(--counting-teal); }
+.counting-number-grid button.is-counted { border-color: #a8d8ca; background: #e8f7f1; }
+.counting-number-grid button.is-selected { border-color: var(--counting-teal-dark); color: #fff; background: var(--counting-teal); transform: scale(1.09); }
+.counting-skill-label { display: block; color: #8a818f; text-align: center; font-size: 12px; }
+
+@media (max-width: 680px) {
+  .counting-card { padding: 23px 15px; border-radius: 24px; }
+  .counting-question-heading { align-items: flex-start; }
+  .counting-listen-button span { display: none; }
+  .counting-listen-button { width: 49px; padding: 0; justify-content: center; }
+  .counting-choices { gap: 8px; }
+  .counting-choice { min-height: 84px; border-radius: 18px; }
+  .counting-number-grid { grid-template-columns: repeat(5, 1fr); }
+}

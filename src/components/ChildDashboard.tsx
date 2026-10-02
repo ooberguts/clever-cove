@@ -1,4 +1,4 @@
-import { ArrowRight, LockKeyhole, Shapes, Star } from "lucide-react";
+import { ArrowRight, BookOpen, Calculator, LockKeyhole, Shapes, Star } from "lucide-react";
 import type { LearnerProfile } from "../domain/models";
 import type { AppServices } from "../services";
 import { gameRegistry, missingGameSettings } from "../games/registry";
@@ -14,6 +14,7 @@ interface ChildDashboardProps {
 export function ChildDashboard({ learners, activeLearnerId, services, onSelectLearner, onLaunch }: ChildDashboardProps) {
   const learner = learners.find((item) => item.id === activeLearnerId) ?? learners[0];
   if (!learner) return null;
+  const availableGames = gameRegistry.filter((game) => game.supportedGrades.includes(learner.grade));
 
   return (
     <main className="dashboard">
@@ -34,22 +35,22 @@ export function ChildDashboard({ learners, activeLearnerId, services, onSelectLe
       <section className="game-section" aria-labelledby="games-title">
         <div className="section-heading">
           <div><span className="eyebrow">YOUR GAMES</span><h2 id="games-title">Choose your next adventure</h2></div>
-          <span className="game-count">{gameRegistry.length} game ready</span>
+          <span className="game-count">{availableGames.length} game{availableGames.length === 1 ? "" : "s"} ready</span>
         </div>
         <div className="game-grid">
-          {gameRegistry.map((game) => {
+          {availableGames.map((game) => {
             const missing = missingGameSettings(game, services.privateValues.configuredKeys(learner.id));
             const locked = missing.length > 0;
             const progress = services.progress.get(learner.id, game.id);
             return (
               <article className={`game-card ${locked ? "locked" : ""}`} key={game.id}>
-                <div className="game-card-art">
-                  <div className="mini-pad" aria-hidden="true"><span>7</span><span>8</span><span>9</span><span>4</span><span>5</span><span>6</span><span>1</span><span>2</span><span>3</span><span>C</span><span>0</span><span>✓</span></div>
+                <div className={`game-card-art subject-${game.subject}`} style={{ backgroundColor: game.accent }}>
+                  <GameCardArt subject={game.subject} />
                   <div className="art-star"><Star fill="currentColor" /></div>
                   <div className="art-shape"><Shapes /></div>
                 </div>
                 <div className="game-card-body">
-                  <span className="subject-badge">LIFE SKILLS</span>
+                  <span className="subject-badge">{game.subject.replace("-", " ").toUpperCase()}</span>
                   <h3>{game.title}</h3>
                   <p>{game.description}</p>
                   {locked ? (
@@ -71,4 +72,10 @@ export function ChildDashboard({ learners, activeLearnerId, services, onSelectLe
       </section>
     </main>
   );
+}
+
+function GameCardArt({ subject }: { subject: string }) {
+  if (subject === "math") return <div className="learning-card-art math-art" aria-hidden="true"><Calculator /><span>1</span><span>2</span><span>3</span></div>;
+  if (subject === "reading") return <div className="learning-card-art reading-art" aria-hidden="true"><BookOpen /><strong>Aa</strong><small>the</small></div>;
+  return <div className="mini-pad" aria-hidden="true"><span>7</span><span>8</span><span>9</span><span>4</span><span>5</span><span>6</span><span>1</span><span>2</span><span>3</span><span>C</span><span>0</span><span>✓</span></div>;
 }
