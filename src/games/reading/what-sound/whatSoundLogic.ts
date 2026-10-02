@@ -1,5 +1,6 @@
 import { getLettersByIds, kindergartenLetters, type LetterContent } from "../../../content";
 import { buildUniqueChoices, pickOne, type RandomSource } from "../shared/quizLogic";
+import { letterSoundKey } from "../shared/soundEquivalence";
 
 export interface WhatSoundQuestion {
   correct: LetterContent;
@@ -13,5 +14,5 @@ export function createWhatSoundQuestion(
 ): WhatSoundQuestion {
   const practicePool = focusIds.length ? getLettersByIds(focusIds).filter((letter) => letters.some((item) => item.id === letter.id)) : [...letters];
   const correct = pickOne(practicePool.length ? practicePool : letters, random);
-  return { correct, choices: buildUniqueChoices(correct, [], letters, 4, random) };
+  return { correct, choices: buildUniqueChoices(correct, [], letters, 4, random, letterSoundKey) };
 }

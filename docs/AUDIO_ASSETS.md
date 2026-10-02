@@ -47,6 +47,14 @@ npm run audio:generate -- --id word.where --force --voice Samantha
 
 The command rejects unknown IDs, reports each failure, and exits nonzero if any asset failed. Windows development does not need `say`; use the already bundled WAV files or copy reviewed replacements into the same manifest paths.
 
+Generate the complete, shareable recording inventory and ready-to-paste voice-AI prompt with:
+
+```bash
+npm run audio:handoff
+```
+
+This writes `docs/AUDIO_RECORDING_HANDOFF.md` directly from the canonical manifest so its 219 IDs, lines, and output paths remain synchronized.
+
 ## Phonemes require adult review
 
 Text-to-speech output is not a reliable isolated phoneme. The generator uses child-friendly approximation text such as `guh`, `ss`, and `huh`, but the generated files at `audio/phonemes/a.wav` through `audio/phonemes/z.wav` are still placeholders. Every one is marked `adult-review-required` in the manifest and must be reviewed by an adult with phonics expertise before being treated as instructional-quality audio.

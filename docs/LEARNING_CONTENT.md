@@ -27,6 +27,8 @@ import {
 
 The two letter-sound games intentionally teach both directions of the same relationship. **Letter Sound Match** plays a phoneme and asks for its letter. **What Sound?** displays the uppercase/lowercase letter, offers its spoken letter name separately, and asks the learner to choose its phoneme. Both reuse the same `letter.*` and `phoneme.*` IDs and the same parent-selected focus letters.
 
+Question choices are also sound-aware. Letters that share the taught primary sound use a shared `soundGroup` (currently hard C and K), while spoken homophones use a shared `homophoneGroup` (currently to/two and there/their). The quiz builder permits only one member of each equivalence group in a question, so a learner is never asked to guess between two audibly correct choices.
+
 ## Editing content
 
 ### Add a tricky word

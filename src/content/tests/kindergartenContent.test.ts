@@ -36,6 +36,8 @@ describe("Kindergarten learning content", () => {
     expect(getLettersByIds(["letter.a", "letter.a"]).map((letter) => letter.id)).toEqual(["letter.a"]);
     expect(getLettersByIds([])).toHaveLength(26);
     expect(getLettersByIds(["letter.not-real"])).toHaveLength(26);
+    expect(kindergartenLetters.find((letter) => letter.id === "letter.c")?.soundGroup).toBe("primary-sound.k");
+    expect(kindergartenLetters.find((letter) => letter.id === "letter.k")?.soundGroup).toBe("primary-sound.k");
   });
 
   it("preserves every supplied tricky-word term and capitalization", () => {
@@ -45,6 +47,8 @@ describe("Kindergarten learning content", () => {
     expect(getTrickyWordsByGroupId("all")).toHaveLength(62);
     expect(kindergartenTrickyWords.find((word) => word.id === "word.I")?.text).toBe("I");
     expect(getCuratedDistractorIds("word.where")).toEqual(expect.arrayContaining(["word.were", "word.there", "word.what", "word.which"]));
+    expect(kindergartenTrickyWords.find((word) => word.id === "word.to")?.homophoneGroup).toBe("homophone.to-two");
+    expect(kindergartenTrickyWords.find((word) => word.id === "word.two")?.homophoneGroup).toBe("homophone.to-two");
   });
 
   it("passes the development-time validator", async () => {

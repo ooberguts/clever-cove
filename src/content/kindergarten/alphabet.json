@@ -1,7 +1,7 @@
 [
   { "id": "letter.a", "uppercase": "A", "lowercase": "a", "display": "Aa", "letterNameAudioId": "letter.a.name", "phonemeAudioId": "phoneme.a" },
   { "id": "letter.b", "uppercase": "B", "lowercase": "b", "display": "Bb", "letterNameAudioId": "letter.b.name", "phonemeAudioId": "phoneme.b" },
-  { "id": "letter.c", "uppercase": "C", "lowercase": "c", "display": "Cc", "letterNameAudioId": "letter.c.name", "phonemeAudioId": "phoneme.c" },
+  { "id": "letter.c", "uppercase": "C", "lowercase": "c", "display": "Cc", "letterNameAudioId": "letter.c.name", "phonemeAudioId": "phoneme.c", "soundGroup": "primary-sound.k" },
   { "id": "letter.d", "uppercase": "D", "lowercase": "d", "display": "Dd", "letterNameAudioId": "letter.d.name", "phonemeAudioId": "phoneme.d" },
   { "id": "letter.e", "uppercase": "E", "lowercase": "e", "display": "Ee", "letterNameAudioId": "letter.e.name", "phonemeAudioId": "phoneme.e" },
   { "id": "letter.f", "uppercase": "F", "lowercase": "f", "display": "Ff", "letterNameAudioId": "letter.f.name", "phonemeAudioId": "phoneme.f" },
@@ -9,7 +9,7 @@
   { "id": "letter.h", "uppercase": "H", "lowercase": "h", "display": "Hh", "letterNameAudioId": "letter.h.name", "phonemeAudioId": "phoneme.h" },
   { "id": "letter.i", "uppercase": "I", "lowercase": "i", "display": "Ii", "letterNameAudioId": "letter.i.name", "phonemeAudioId": "phoneme.i" },
   { "id": "letter.j", "uppercase": "J", "lowercase": "j", "display": "Jj", "letterNameAudioId": "letter.j.name", "phonemeAudioId": "phoneme.j" },
-  { "id": "letter.k", "uppercase": "K", "lowercase": "k", "display": "Kk", "letterNameAudioId": "letter.k.name", "phonemeAudioId": "phoneme.k" },
+  { "id": "letter.k", "uppercase": "K", "lowercase": "k", "display": "Kk", "letterNameAudioId": "letter.k.name", "phonemeAudioId": "phoneme.k", "soundGroup": "primary-sound.k" },
   { "id": "letter.l", "uppercase": "L", "lowercase": "l", "display": "Ll", "letterNameAudioId": "letter.l.name", "phonemeAudioId": "phoneme.l" },
   { "id": "letter.m", "uppercase": "M", "lowercase": "m", "display": "Mm", "letterNameAudioId": "letter.m.name", "phonemeAudioId": "phoneme.m" },
   { "id": "letter.n", "uppercase": "N", "lowercase": "n", "display": "Nn", "letterNameAudioId": "letter.n.name", "phonemeAudioId": "phoneme.n" },

@@ -21,6 +21,7 @@ Learner profiles, parent settings, private values, and progress stay in the oper
 - Kindergarten Counting Practice with 1–25, 1–50, and 1–100 modes
 - A–Z Letter Sound Match, What Sound? letter-name-versus-sound practice, and four-term Tricky Word Match
 - A saved ten-correct celebration bar in every game, followed by a choice to keep playing or pick another game
+- Sound-aware answer choices that keep equivalent phonemes and spoken homophones out of the same question
 - Bundled offline spoken audio addressed by stable curriculum IDs
 - Development-time content validation and macOS audio generation
 - Guided Student ID Practice with matching-digit colors, keypad sounds, success chimes, and mouse, touch, or keyboard controls
@@ -84,5 +85,6 @@ After installation, a parent can open **Parent Mode → App updates** to check, 
 - [Adding a minigame](docs/ADDING_A_MINIGAME.md)
 - [Learning content](docs/LEARNING_CONTENT.md)
 - [Local audio assets](docs/AUDIO_ASSETS.md)
+- [Complete audio recording handoff](docs/AUDIO_RECORDING_HANDOFF.md)
 - [Learner profile schema](docs/PROFILE_SCHEMA.md)
 - [Privacy model](docs/PRIVACY.md)

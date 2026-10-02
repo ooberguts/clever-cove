@@ -1,7 +1,7 @@
 {
   "name": "clever-cove",
   "private": true,
-  "version": "0.4.0",
+  "version": "0.4.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,8 @@
     "typecheck": "tsc -b --pretty false",
     "content:validate": "node scripts/validate-content.mjs",
     "audio:manifest": "node scripts/sync-audio-manifest.mjs",
-    "audio:generate": "node scripts/generate-audio.mjs"
+    "audio:generate": "node scripts/generate-audio.mjs",
+    "audio:handoff": "node scripts/generate-audio-handoff.mjs"
   },
   "dependencies": {
     "@tauri-apps/api": "^2.8.0",

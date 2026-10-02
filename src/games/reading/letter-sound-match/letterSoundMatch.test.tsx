@@ -35,6 +35,13 @@ describe("Letter Sound Match content and question logic", () => {
       expect(ids.filter((id) => id === question.correct.id)).toHaveLength(1);
     }
   });
+
+  it("never places C and K together because both use the taught kuh sound", () => {
+    const cQuestion = createLetterSoundQuestion(["letter.c"], () => 0);
+    const kQuestion = createLetterSoundQuestion(["letter.k"], () => 0);
+    expect(cQuestion.choices.map((letter) => letter.id)).not.toContain("letter.k");
+    expect(kQuestion.choices.map((letter) => letter.id)).not.toContain("letter.c");
+  });
 });
 
 describe("Letter Sound Match game", () => {

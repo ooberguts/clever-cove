@@ -24,12 +24,14 @@ export interface LetterContent {
   display: string;
   letterNameAudioId: `letter.${string}.name`;
   phonemeAudioId: `phoneme.${string}`;
+  soundGroup?: string;
 }
 
 export interface TrickyWordContent {
   id: `word.${string}`;
   text: string;
   audioId: `word.${string}`;
+  homophoneGroup?: string;
 }
 
 export interface TrickyWordGroup {

@@ -70,6 +70,7 @@ export function validateContent({ numberRange, letters, trickyWords, audioAssets
     if (entry?.uppercase !== entry?.lowercase?.toUpperCase() || entry?.display !== `${entry?.uppercase}${entry?.lowercase}`) errors.push(`${context} has inconsistent uppercase/lowercase display values`);
     if (!audioIds.has(entry?.letterNameAudioId)) errors.push(`${context} references missing audio ID ${entry?.letterNameAudioId}`);
     if (!audioIds.has(entry?.phonemeAudioId)) errors.push(`${context} references missing audio ID ${entry?.phonemeAudioId}`);
+    if (entry?.soundGroup !== undefined && (typeof entry.soundGroup !== "string" || !entry.soundGroup.trim())) errors.push(`${context} has an invalid soundGroup`);
   }
 
   for (const entry of trickyWords.words) {
@@ -78,6 +79,7 @@ export function validateContent({ numberRange, letters, trickyWords, audioAssets
     if (!/^word\.[A-Za-z]+$/.test(entry?.id ?? "")) errors.push(`Malformed tricky-word ID: ${entry?.id ?? "missing"}`);
     if (entry?.audioId !== entry?.id) errors.push(`${context} must use its stable word ID as its audio ID`);
     if (!audioIds.has(entry?.audioId)) errors.push(`${context} references missing audio ID ${entry?.audioId}`);
+    if (entry?.homophoneGroup !== undefined && (typeof entry.homophoneGroup !== "string" || !entry.homophoneGroup.trim())) errors.push(`${context} has an invalid homophoneGroup`);
   }
 
   const groupedWordIds = [];

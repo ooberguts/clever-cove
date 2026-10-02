@@ -52,6 +52,21 @@ describe("Tricky Word Match content and question logic", () => {
     expect(ids).toEqual(expect.arrayContaining(["word.were", "word.there"]));
     expect(ids.every((id) => kindergartenTrickyWords.some((word) => word.id === id))).toBe(true);
   });
+
+  it("never places spoken homophones in the same question", () => {
+    const withFirst = (id: string) => {
+      const first = kindergartenTrickyWords.find((word) => word.id === id)!;
+      return [first, ...kindergartenTrickyWords.filter((word) => word.id !== id)];
+    };
+    const toQuestion = createTrickyWordQuestion("all", () => 0, withFirst("word.to"));
+    const twoQuestion = createTrickyWordQuestion("all", () => 0, withFirst("word.two"));
+    const thereQuestion = createTrickyWordQuestion("all", () => 0, withFirst("word.there"));
+    const theirQuestion = createTrickyWordQuestion("all", () => 0, withFirst("word.their"));
+    expect(toQuestion.choices.map((word) => word.id)).not.toContain("word.two");
+    expect(twoQuestion.choices.map((word) => word.id)).not.toContain("word.to");
+    expect(thereQuestion.choices.map((word) => word.id)).not.toContain("word.their");
+    expect(theirQuestion.choices.map((word) => word.id)).not.toContain("word.there");
+  });
 });
 
 describe("Tricky Word Match game", () => {

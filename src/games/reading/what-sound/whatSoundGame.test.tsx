@@ -22,6 +22,13 @@ describe("What Sound question logic", () => {
     const questions = kindergartenLetters.map((_, index) => createWhatSoundQuestion([], () => (index + 0.5) / 26));
     expect(new Set(questions.map((question) => question.correct.id))).toHaveLength(26);
   });
+
+  it("never offers both C and K as sound choices", () => {
+    const cQuestion = createWhatSoundQuestion(["letter.c"], () => 0);
+    const kQuestion = createWhatSoundQuestion(["letter.k"], () => 0);
+    expect(cQuestion.choices.map((letter) => letter.id)).not.toContain("letter.k");
+    expect(kQuestion.choices.map((letter) => letter.id)).not.toContain("letter.c");
+  });
 });
 
 describe("What Sound game", () => {

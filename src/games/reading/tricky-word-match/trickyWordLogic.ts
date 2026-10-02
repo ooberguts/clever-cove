@@ -5,6 +5,7 @@ import {
 } from "../../../content";
 import type { TrickyWordContent, TrickyWordDistractorGroup, TrickyWordGroup } from "../../../content";
 import { buildUniqueChoices, pickOne, type RandomSource } from "../shared/quizLogic";
+import { trickyWordSoundKey } from "../shared/soundEquivalence";
 
 export interface TrickyWordQuestion {
   correct: TrickyWordContent;
@@ -48,6 +49,6 @@ export function createTrickyWordQuestion(
   const correct = pickOne(practicePool, random);
   const curated = getCuratedDistractors(correct.id, words, distractorGroups);
   const fallback = [...practicePool, ...words];
-  const choices = buildUniqueChoices(correct, curated, fallback, 4, random);
+  const choices = buildUniqueChoices(correct, curated, fallback, 4, random, trickyWordSoundKey);
   return { correct, choices };
 }

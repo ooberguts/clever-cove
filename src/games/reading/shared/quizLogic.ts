@@ -22,10 +22,16 @@ export function buildUniqueChoices<T extends { id: string }>(
   fallbackDistractors: readonly T[],
   choiceCount = 4,
   random: RandomSource = Math.random,
+  equivalenceKey: (item: T) => string = (item) => item.id,
 ): T[] {
   const unique = new Map<string, T>();
+  const usedEquivalenceKeys = new Set([equivalenceKey(correct)]);
   for (const item of [...preferredDistractors, ...shuffled(fallbackDistractors, random)]) {
-    if (item.id !== correct.id) unique.set(item.id, item);
+    const key = equivalenceKey(item);
+    if (item.id !== correct.id && !usedEquivalenceKeys.has(key)) {
+      unique.set(item.id, item);
+      usedEquivalenceKeys.add(key);
+    }
   }
 
   const distractors = [...unique.values()].slice(0, Math.max(0, choiceCount - 1));
