@@ -1,0 +1,55 @@
+name: Desktop release
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+jobs:
+  build:
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: macos-14
+            args: --target aarch64-apple-darwin
+          - platform: macos-13
+            args: --target x86_64-apple-darwin
+          - platform: windows-latest
+            args: --target x86_64-pc-windows-msvc
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ contains(matrix.platform, 'macos') && (matrix.platform == 'macos-14' && 'aarch64-apple-darwin' || 'x86_64-apple-darwin') || 'x86_64-pc-windows-msvc' }}
+      - run: npm ci
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        with:
+          tagName: v__VERSION__
+          releaseName: PinPad Academy v__VERSION__
+          releaseBody: Download the installer for your computer from the Assets section below.
+          releaseDraft: true
+          prerelease: false
+          args: ${{ matrix.args }}
+
+  attach-installers:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: gh release upload "${GITHUB_REF_NAME}" scripts/install.sh scripts/install.ps1 --clobber
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
