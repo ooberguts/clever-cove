@@ -884,182 +884,182 @@
   {
     "id": "phoneme.a",
     "kind": "phoneme",
-    "text": "a",
+    "text": "ah",
     "path": "audio/phonemes/a.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.b",
     "kind": "phoneme",
-    "text": "b",
+    "text": "buh",
     "path": "audio/phonemes/b.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.c",
     "kind": "phoneme",
-    "text": "c",
+    "text": "kuh",
     "path": "audio/phonemes/c.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.d",
     "kind": "phoneme",
-    "text": "d",
+    "text": "duh",
     "path": "audio/phonemes/d.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.e",
     "kind": "phoneme",
-    "text": "e",
+    "text": "eh",
     "path": "audio/phonemes/e.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.f",
     "kind": "phoneme",
-    "text": "f",
+    "text": "ff",
     "path": "audio/phonemes/f.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.g",
     "kind": "phoneme",
-    "text": "g",
+    "text": "guh",
     "path": "audio/phonemes/g.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.h",
     "kind": "phoneme",
-    "text": "h",
+    "text": "huh",
     "path": "audio/phonemes/h.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.i",
     "kind": "phoneme",
-    "text": "i",
+    "text": "ih",
     "path": "audio/phonemes/i.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.j",
     "kind": "phoneme",
-    "text": "j",
+    "text": "juh",
     "path": "audio/phonemes/j.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.k",
     "kind": "phoneme",
-    "text": "k",
+    "text": "kuh",
     "path": "audio/phonemes/k.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.l",
     "kind": "phoneme",
-    "text": "l",
+    "text": "ll",
     "path": "audio/phonemes/l.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.m",
     "kind": "phoneme",
-    "text": "m",
+    "text": "mm",
     "path": "audio/phonemes/m.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.n",
     "kind": "phoneme",
-    "text": "n",
+    "text": "nn",
     "path": "audio/phonemes/n.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.o",
     "kind": "phoneme",
-    "text": "o",
+    "text": "ah",
     "path": "audio/phonemes/o.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.p",
     "kind": "phoneme",
-    "text": "p",
+    "text": "puh",
     "path": "audio/phonemes/p.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.q",
     "kind": "phoneme",
-    "text": "q",
+    "text": "kwuh",
     "path": "audio/phonemes/q.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.r",
     "kind": "phoneme",
-    "text": "r",
+    "text": "rr",
     "path": "audio/phonemes/r.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.s",
     "kind": "phoneme",
-    "text": "s",
+    "text": "ss",
     "path": "audio/phonemes/s.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.t",
     "kind": "phoneme",
-    "text": "t",
+    "text": "tuh",
     "path": "audio/phonemes/t.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.u",
     "kind": "phoneme",
-    "text": "u",
+    "text": "uh",
     "path": "audio/phonemes/u.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.v",
     "kind": "phoneme",
-    "text": "v",
+    "text": "vv",
     "path": "audio/phonemes/v.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.w",
     "kind": "phoneme",
-    "text": "w",
+    "text": "wuh",
     "path": "audio/phonemes/w.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.x",
     "kind": "phoneme",
-    "text": "x",
+    "text": "ks",
     "path": "audio/phonemes/x.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.y",
     "kind": "phoneme",
-    "text": "y",
+    "text": "yuh",
     "path": "audio/phonemes/y.wav",
     "reviewStatus": "adult-review-required"
   },
   {
     "id": "phoneme.z",
     "kind": "phoneme",
-    "text": "z",
+    "text": "zz",
     "path": "audio/phonemes/z.wav",
     "reviewStatus": "adult-review-required"
   },

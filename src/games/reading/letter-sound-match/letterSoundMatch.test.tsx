@@ -74,4 +74,24 @@ describe("Letter Sound Match game", () => {
       });
     });
   });
+
+  it("celebrates the tenth saved correct answer and offers both next steps", async () => {
+    vi.spyOn(Math, "random").mockReturnValue(0);
+    const { services } = await createTestServices();
+    const learner = await services.profiles.create("Maya", "K");
+    await services.learningPreferences.setLetterFocusIds(learner.id, ["letter.m"]);
+    for (let count = 0; count < 9; count += 1) {
+      await services.progress.recordLearningAttempt(learner.id, LETTER_SOUND_MATCH_GAME_ID, LETTER_SOUND_SKILL_ID, "letter.m", true);
+    }
+    vi.spyOn(services.audio, "play").mockResolvedValue(true);
+    const user = userEvent.setup();
+    render(<LetterSoundMatchGame learner={learner} services={services} onExit={vi.fn()} />);
+
+    await user.click(screen.getByRole("button", { name: "Letter M, lowercase m" }));
+    expect(await screen.findByRole("dialog", { name: "Amazing work, Maya!" })).toBeInTheDocument();
+    expect(screen.getByText("10 / 10 correct")).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: /keep playing/i }));
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    expect(screen.getByText("0 / 10 correct")).toBeInTheDocument();
+  });
 });

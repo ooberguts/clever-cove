@@ -49,7 +49,7 @@ The command rejects unknown IDs, reports each failure, and exits nonzero if any 
 
 ## Phonemes require adult review
 
-Text-to-speech letter output is not a reliable isolated phoneme. The generated files at `audio/phonemes/a.wav` through `audio/phonemes/z.wav` are placeholders only. Every one is marked `adult-review-required` in the manifest and must be reviewed by an adult with phonics expertise before being treated as instructional-quality audio.
+Text-to-speech output is not a reliable isolated phoneme. The generator uses child-friendly approximation text such as `guh`, `ss`, and `huh`, but the generated files at `audio/phonemes/a.wav` through `audio/phonemes/z.wav` are still placeholders. Every one is marked `adult-review-required` in the manifest and must be reviewed by an adult with phonics expertise before being treated as instructional-quality audio.
 
 To replace a placeholder:
 

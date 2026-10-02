@@ -7,6 +7,8 @@ import type { LearningPreferencesService } from "../../services/learningPreferen
 import type { ProgressService } from "../../services/progressService";
 import { createListeningQuestion, createSequenceQuestion } from "./countingLogic";
 import { COUNTING_GAME_ID, COUNTING_SKILL_IDS, countingRangeSkill } from "./manifest";
+import { GameGoalProgress, GameMilestoneDialog } from "../shared/GameMilestone";
+import { useGameMilestone } from "../shared/useGameMilestone";
 import "./counting.css";
 
 type CountingMode = "sequence" | "listening" | "count-along";
@@ -15,7 +17,7 @@ type QuizQuestion = ReturnType<typeof createSequenceQuestion> | ReturnType<typeo
 interface CountingServices {
   audio: Pick<AudioService, "play">;
   learningPreferences: Pick<LearningPreferencesService, "get">;
-  progress: Pick<ProgressService, "startSession" | "recordLearningAttempt" | "recordPracticeCompletion">;
+  progress: Pick<ProgressService, "get" | "startSession" | "recordLearningAttempt" | "recordPracticeCompletion">;
 }
 
 interface CountingGameProps {
@@ -81,6 +83,7 @@ export function CountingGame({ learner, services, onExit }: CountingGameProps) {
   const [nextCount, setNextCount] = useState(1);
   const [countComplete, setCountComplete] = useState(false);
   const sessionStarted = useRef(false);
+  const milestone = useGameMilestone(services.progress.get(learner.id, COUNTING_GAME_ID).successes);
 
   useEffect(() => {
     if (sessionStarted.current) return;
@@ -115,6 +118,7 @@ export function CountingGame({ learner, services, onExit }: CountingGameProps) {
     await services.progress.recordLearningAttempt(learner.id, COUNTING_GAME_ID, skillId, question.answer.id, success);
     if (success) {
       setAnswered(true);
+      milestone.recordCorrect();
       void services.audio.play(question.answer.audioId);
     } else {
       setWrongChoices((current) => new Set(current).add(choice.id));
@@ -124,7 +128,11 @@ export function CountingGame({ learner, services, onExit }: CountingGameProps) {
   const chooseCountNumber = async (number: NumberContent) => {
     setSelectedCount(number.value);
     void services.audio.play(number.audioId);
-    if (number.value === nextCount) setNextCount((current) => Math.min(maximum + 1, current + 1));
+    if (number.value === nextCount) {
+      await services.progress.recordLearningAttempt(learner.id, COUNTING_GAME_ID, COUNTING_SKILL_IDS.sequence, number.id, true);
+      milestone.recordCorrect();
+      setNextCount((current) => Math.min(maximum + 1, current + 1));
+    }
     if (number.value === maximum && nextCount === maximum && !countComplete) {
       setCountComplete(true);
       await services.progress.recordPracticeCompletion(learner.id, COUNTING_GAME_ID);
@@ -134,6 +142,11 @@ export function CountingGame({ learner, services, onExit }: CountingGameProps) {
   const replay = () => {
     if (mode === "listening") void services.audio.play(question.answer.audioId);
     else if (mode) void services.audio.play(PROMPT_AUDIO_IDS[mode]);
+  };
+
+  const keepPlaying = () => {
+    milestone.continuePlaying();
+    if (mode && mode !== "count-along") newQuestion(mode);
   };
 
   return (
@@ -150,6 +163,8 @@ export function CountingGame({ learner, services, onExit }: CountingGameProps) {
           {learner.displayName.slice(0, 1).toUpperCase()}
         </div>
       </header>
+
+      <GameGoalProgress corrects={milestone.corrects} />
 
       {!mode && (
         <section className="counting-card counting-mode-picker" aria-labelledby="counting-mode-title">
@@ -196,7 +211,7 @@ export function CountingGame({ learner, services, onExit }: CountingGameProps) {
             {answered && <><Sparkles aria-hidden="true" /><strong>Yes! It’s {question.answer.display}!</strong></>}
             {!answered && wrongChoices.size > 0 && <><RotateCcw aria-hidden="true" /><strong>Good try! Pick another one.</strong></>}
           </div>
-          {answered && (
+          {answered && !milestone.isCelebrating && (
             <button className="counting-next-button" type="button" onClick={() => newQuestion(mode)}>Next number</button>
           )}
         </section>
@@ -232,6 +247,7 @@ export function CountingGame({ learner, services, onExit }: CountingGameProps) {
           <span className="counting-skill-label">Practicing {countingRangeSkill(maximum)}</span>
         </section>
       )}
+      <GameMilestoneDialog open={milestone.isCelebrating} learnerName={learner.displayName} onKeepPlaying={keepPlaying} onChooseGame={onExit} />
     </main>
   );
 }

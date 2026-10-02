@@ -13,6 +13,37 @@ try {
 }
 const existingById = new Map(existingAssets.map((asset) => [asset.id, asset]));
 
+// These spellings make the development TTS placeholders sound closer to the
+// short phonemes children are practicing. They remain adult-review-required.
+const phonemeGenerationText = {
+  a: "ah",
+  b: "buh",
+  c: "kuh",
+  d: "duh",
+  e: "eh",
+  f: "ff",
+  g: "guh",
+  h: "huh",
+  i: "ih",
+  j: "juh",
+  k: "kuh",
+  l: "ll",
+  m: "mm",
+  n: "nn",
+  o: "ah",
+  p: "puh",
+  q: "kwuh",
+  r: "rr",
+  s: "ss",
+  t: "tuh",
+  u: "uh",
+  v: "vv",
+  w: "wuh",
+  x: "ks",
+  y: "yuh",
+  z: "zz",
+};
+
 const assets = [];
 
 for (const prompt of [
@@ -52,7 +83,7 @@ for (const letter of alphabet) {
   assets.push({
     id: letter.phonemeAudioId,
     kind: "phoneme",
-    text: letter.lowercase,
+    text: phonemeGenerationText[letter.lowercase] ?? letter.lowercase,
     path: `audio/phonemes/${letter.lowercase}.wav`,
     reviewStatus: "adult-review-required",
   });

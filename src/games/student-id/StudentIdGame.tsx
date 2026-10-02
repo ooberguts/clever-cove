@@ -4,6 +4,8 @@ import type { AppServices } from "../../services";
 import type { LearnerProfile } from "../../domain/models";
 import { appendDigit, INITIAL_GAME_STATE, KEYPAD_KEYS, type KeypadKey } from "./studentIdLogic";
 import { STUDENT_ID_GAME_ID } from "./manifest";
+import { GameGoalProgress, GameMilestoneDialog } from "../shared/GameMilestone";
+import { useGameMilestone } from "../shared/useGameMilestone";
 
 interface StudentIdGameProps {
   learner: LearnerProfile;
@@ -16,6 +18,8 @@ export function StudentIdGame({ learner, services, onExit }: StudentIdGameProps)
   const [busy, setBusy] = useState(false);
   const [muted, setMuted] = useState(false);
   const sessionStarted = useRef(false);
+  const milestone = useGameMilestone(services.progress.get(learner.id, STUDENT_ID_GAME_ID).successes);
+  const recordMilestoneCorrect = milestone.recordCorrect;
   const practiceId = services.privateValues.getForGuidedPractice(learner.id, "private.student_id");
   const digitStates = state.input.split("").map((digit, index) => digit === practiceId[index]);
   const needsClear = digitStates.includes(false);
@@ -33,13 +37,14 @@ export function StudentIdGame({ learner, services, onExit }: StudentIdGameProps)
     await services.progress.recordAttempt(learner.id, STUDENT_ID_GAME_ID, success);
     if (success) {
       services.sounds.success(muted);
+      recordMilestoneCorrect();
       setState({ input: "", feedback: "success" });
     } else {
       services.sounds.retry(muted);
       setState((current) => ({ ...current, feedback: "retry" }));
     }
     setBusy(false);
-  }, [busy, learner.id, muted, services, state.input]);
+  }, [busy, learner.id, muted, recordMilestoneCorrect, services, state.input]);
 
   const pressKey = useCallback(
     (key: KeypadKey) => {
@@ -89,6 +94,8 @@ export function StudentIdGame({ learner, services, onExit }: StudentIdGameProps)
           </div>
         </div>
       </header>
+
+      <GameGoalProgress corrects={milestone.corrects} />
 
       <section className="practice-card" aria-labelledby="game-prompt">
         <div className="practice-intro">
@@ -165,6 +172,7 @@ export function StudentIdGame({ learner, services, onExit }: StudentIdGameProps)
         </div>
         <p className="keyboard-hint">Keyboard: number keys to type · Enter to submit · Backspace to clear</p>
       </section>
+      <GameMilestoneDialog open={milestone.isCelebrating} learnerName={learner.displayName} onKeepPlaying={milestone.continuePlaying} onChooseGame={onExit} />
     </main>
   );
 }

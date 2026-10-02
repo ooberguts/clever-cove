@@ -5,7 +5,7 @@ import { createTestServices } from "../test/testServices";
 import { ChildDashboard } from "./ChildDashboard";
 
 describe("Child dashboard learning pack", () => {
-  it("shows all four ready games for a Kindergarten learner and launches the chosen game", async () => {
+  it("shows all five ready games for a Kindergarten learner and launches the chosen game", async () => {
     const { services } = await createTestServices();
     const learner = await services.profiles.create("Maya", "K");
     await services.privateValues.set(learner.id, "private.student_id", "2468");
@@ -13,9 +13,10 @@ describe("Child dashboard learning pack", () => {
     const user = userEvent.setup();
     render(<ChildDashboard learners={[services.profiles.get(learner.id)!]} activeLearnerId={learner.id} services={services} onSelectLearner={vi.fn()} onLaunch={onLaunch} />);
 
-    expect(screen.getByText("4 games ready")).toBeInTheDocument();
+    expect(screen.getByText("5 games ready")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Counting Practice" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Letter Sound Match" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "What Sound?" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Tricky Word Match" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Student ID Practice" })).toBeInTheDocument();
 

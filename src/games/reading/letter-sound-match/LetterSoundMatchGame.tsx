@@ -2,6 +2,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, RotateCcw, Volume2 } from "lucide-react";
 import type { LearnerProfile } from "../../../domain/models";
 import type { AppServices } from "../../../services";
+import { GameGoalProgress, GameMilestoneDialog } from "../../shared/GameMilestone";
+import { useGameMilestone } from "../../shared/useGameMilestone";
 import { createLetterSoundQuestion, type LetterSoundQuestion } from "./letterSoundLogic";
 import { LETTER_SOUND_MATCH_GAME_ID, LETTER_SOUND_PROMPT_AUDIO_ID, LETTER_SOUND_SKILL_ID } from "./manifest";
 import "../reading-games.css";
@@ -22,6 +24,7 @@ export function LetterSoundMatchGame({ learner, services, onExit }: LetterSoundM
   const [wrongChoiceIds, setWrongChoiceIds] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
   const sessionStarted = useRef(false);
+  const milestone = useGameMilestone(services.progress.get(learner.id, LETTER_SOUND_MATCH_GAME_ID).successes);
 
   const playSound = useCallback(() => {
     void services.audio.play(question.correct.phonemeAudioId);
@@ -51,6 +54,7 @@ export function LetterSoundMatchGame({ learner, services, onExit }: LetterSoundM
     );
     if (success) {
       services.sounds.success();
+      milestone.recordCorrect();
       setFeedback("correct");
     } else {
       services.sounds.retry();
@@ -64,6 +68,11 @@ export function LetterSoundMatchGame({ learner, services, onExit }: LetterSoundM
     setQuestion(makeQuestion());
     setWrongChoiceIds([]);
     setFeedback("idle");
+  }
+
+  function keepPlaying() {
+    milestone.continuePlaying();
+    nextQuestion();
   }
 
   return (
@@ -80,6 +89,8 @@ export function LetterSoundMatchGame({ learner, services, onExit }: LetterSoundM
           {learner.displayName.slice(0, 1).toUpperCase()}
         </div>
       </header>
+
+      <GameGoalProgress corrects={milestone.corrects} />
 
       <section className="reading-quiz-card" aria-labelledby="letter-sound-prompt">
         <span className="reading-step-pill">Listen and choose</span>
@@ -118,12 +129,13 @@ export function LetterSoundMatchGame({ learner, services, onExit }: LetterSoundM
           {feedback === "correct" && <><CheckCircle2 aria-hidden="true" /><strong>That’s right! Great listening!</strong></>}
         </div>
 
-        {feedback === "correct" && (
+        {feedback === "correct" && !milestone.isCelebrating && (
           <button className="reading-next-button" type="button" onClick={nextQuestion}>
             Next Sound <ArrowRight aria-hidden="true" />
           </button>
         )}
       </section>
+      <GameMilestoneDialog open={milestone.isCelebrating} learnerName={learner.displayName} onKeepPlaying={keepPlaying} onChooseGame={onExit} />
     </main>
   );
 }

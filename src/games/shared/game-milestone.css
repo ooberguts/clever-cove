@@ -1,0 +1,45 @@
+.game-goal {
+  width: min(820px, calc(100% - 24px));
+  margin: -8px auto 22px;
+  padding: 12px 16px 11px;
+  border: 2px solid #eadfba;
+  border-radius: 18px;
+  background: rgb(255 253 243 / 96%);
+  box-shadow: 0 8px 24px rgb(83 65 21 / 8%);
+}
+
+.game-goal-copy { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: #615736; font-size: 13px; }
+.game-goal-copy span { display: inline-flex; align-items: center; gap: 6px; font-weight: 850; }
+.game-goal-copy svg { width: 17px; color: #d18b12; }
+.game-goal-copy strong { color: #4e4327; font-size: 14px; }
+.game-goal-track { height: 14px; margin-top: 8px; overflow: hidden; border: 2px solid #d9c98f; border-radius: 999px; background: #f1ead1; }
+.game-goal-track span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #ffb52e, #f7d34c); transition: width 260ms ease; }
+.game-goal-dots { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; margin-top: 7px; }
+.game-goal-dots i { height: 4px; border-radius: 99px; background: #e5ddc5; }
+.game-goal-dots i.filled { background: #e99a18; }
+
+.milestone-backdrop { position: fixed; inset: 0; z-index: 100; padding: 20px; display: grid; place-items: center; background: rgb(38 29 50 / 72%); backdrop-filter: blur(5px); }
+.milestone-dialog { width: min(500px, 100%); padding: clamp(28px, 6vw, 46px); border: 4px solid #f5ca47; border-radius: 34px; background: linear-gradient(180deg, #fffdf5, #fff8df); box-shadow: 0 28px 80px rgb(19 13 27 / 38%); text-align: center; }
+.milestone-stars { color: #e99517; font-size: 23px; letter-spacing: 8px; }
+.milestone-trophy { width: 82px; height: 82px; margin: 12px auto; display: grid; place-items: center; border-radius: 50%; color: #fff; background: linear-gradient(145deg, #f2a61d, #e17f0d); box-shadow: 0 8px 0 #b96309; }
+.milestone-trophy svg { width: 43px; height: 43px; }
+.milestone-kicker { color: #a95d0e; font-size: 12px; font-weight: 950; letter-spacing: 2px; }
+.milestone-dialog h2 { margin: 8px 0; font-size: clamp(28px, 7vw, 40px); }
+.milestone-dialog p { margin: 0 auto 24px; color: #6f624e; font-size: 17px; line-height: 1.45; }
+.milestone-actions { display: grid; gap: 12px; }
+.milestone-actions button { min-height: 60px; padding: 12px 18px; border-radius: 18px; display: flex; align-items: center; justify-content: center; gap: 9px; font: inherit; font-size: 17px; font-weight: 900; cursor: pointer; }
+.milestone-actions svg { width: 21px; }
+.milestone-keep { border: 0; color: #fff; background: #3b7b55; box-shadow: 0 6px 0 #24553a; }
+.milestone-choose { border: 2px solid #826bb5; color: #513a87; background: #f2edff; }
+.milestone-actions button:focus-visible { outline: 4px solid #151515; outline-offset: 4px; }
+
+@media (max-width: 560px) {
+  .game-goal { width: calc(100% - 6px); margin-bottom: 16px; }
+  .game-goal-copy span { font-size: 12px; }
+  .milestone-backdrop { padding: 12px; }
+  .milestone-dialog { padding: 27px 18px 25px; border-radius: 27px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-goal-track span { transition: none; }
+}

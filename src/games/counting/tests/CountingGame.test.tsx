@@ -26,6 +26,7 @@ function makeServices() {
     audio: { play: vi.fn().mockResolvedValue(true) },
     learningPreferences: { get: vi.fn(() => learner.preferences) },
     progress: {
+      get: vi.fn(() => ({ gameId: COUNTING_GAME_ID, attempts: 0, successes: 0, completedRounds: 0, sessions: 0, daily: {} })),
       startSession: vi.fn().mockResolvedValue(undefined),
       recordLearningAttempt: vi.fn().mockResolvedValue(undefined),
       recordPracticeCompletion: vi.fn().mockResolvedValue(undefined),
@@ -71,6 +72,7 @@ describe("CountingGame", () => {
       learner.id,
       COUNTING_GAME_ID,
     ));
+    expect(services.progress.recordLearningAttempt).toHaveBeenCalledTimes(25);
     expect(screen.getByText("You counted to 25! Wonderful!")).toBeInTheDocument();
   });
 });

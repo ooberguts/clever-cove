@@ -12,6 +12,7 @@ CleverCove is a local-first Tauri 2 desktop application. React components never 
 - **Learning content** — `src/content` owns stable number, letter, phoneme, word, term, distractor, and audio IDs. Games consume catalog records rather than embedding curriculum lists.
 - **Local speech** — `AudioService` resolves stable IDs through the bundled audio manifest. Spoken assets work offline and missing playback is contained without crashing a game.
 - **Game registry** — `src/games/registry.ts` is the catalog used by the dashboard. Required settings are resolved from each manifest.
+- **Game milestones** — the shared milestone hook and controls show saved progress toward each group of ten correct answers. The checkpoint returns the learner to a fresh round or the game dashboard without storing any new personal data.
 - **Progress** — `ProgressService` records game totals plus aggregate daily and skill/content counters. It has no API for raw answers.
 - **Parent reports** — `buildLearnerReport` derives per-learner play frequency, accuracy, focus areas, and fourteen-day history. Improvement compares the latest seven days with the preceding seven days after each period has at least three answers.
 - **Anonymous exports** — `AnonymousExportService` builds a new allow-listed object rather than filtering the storage object.

@@ -25,6 +25,8 @@ import {
 
 `getLettersByIds()` deliberately falls back to A–Z for an empty or wholly invalid focus set. `getTrickyWordsByGroupId("all")` returns all four terms.
 
+The two letter-sound games intentionally teach both directions of the same relationship. **Letter Sound Match** plays a phoneme and asks for its letter. **What Sound?** displays the uppercase/lowercase letter, offers its spoken letter name separately, and asks the learner to choose its phoneme. Both reuse the same `letter.*` and `phoneme.*` IDs and the same parent-selected focus letters.
+
 ## Editing content
 
 ### Add a tricky word

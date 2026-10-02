@@ -14,10 +14,12 @@ import { LetterSoundMatchGame } from "./games/reading/letter-sound-match/LetterS
 import { LETTER_SOUND_MATCH_GAME_ID } from "./games/reading/letter-sound-match/manifest";
 import { TrickyWordMatchGame } from "./games/reading/tricky-word-match/TrickyWordMatchGame";
 import { TRICKY_WORD_MATCH_GAME_ID } from "./games/reading/tricky-word-match/manifest";
+import { WhatSoundGame } from "./games/reading/what-sound/WhatSoundGame";
+import { WHAT_SOUND_GAME_ID } from "./games/reading/what-sound/manifest";
 import { createServices } from "./services";
 import "./styles.css";
 
-type View = "dashboard" | "parent" | "student-id" | "counting" | "letter-sound" | "tricky-word";
+type View = "dashboard" | "parent" | "student-id" | "counting" | "letter-sound" | "what-sound" | "tricky-word";
 
 export default function App() {
   const services = useMemo(() => createServices(), []);
@@ -46,6 +48,7 @@ export default function App() {
   if (view === "student-id" && activeLearner) return <StudentIdGame learner={activeLearner} services={services} onExit={() => { refresh(); setView("dashboard"); }} />;
   if (view === "counting" && activeLearner) return <CountingGame learner={activeLearner} services={services} onExit={() => { refresh(); setView("dashboard"); }} />;
   if (view === "letter-sound" && activeLearner) return <LetterSoundMatchGame learner={activeLearner} services={services} onExit={() => { refresh(); setView("dashboard"); }} />;
+  if (view === "what-sound" && activeLearner) return <WhatSoundGame learner={activeLearner} services={services} onExit={() => { refresh(); setView("dashboard"); }} />;
   if (view === "tricky-word" && activeLearner) return <TrickyWordMatchGame learner={activeLearner} services={services} onExit={() => { refresh(); setView("dashboard"); }} />;
   if (view === "parent") return <ParentMode services={services} learners={learners} onRefresh={refresh} onExit={() => { refresh(); setView("dashboard"); }} />;
 
@@ -56,6 +59,7 @@ export default function App() {
         if (gameId === STUDENT_ID_GAME_ID) setView("student-id");
         if (gameId === COUNTING_GAME_ID) setView("counting");
         if (gameId === LETTER_SOUND_MATCH_GAME_ID) setView("letter-sound");
+        if (gameId === WHAT_SOUND_GAME_ID) setView("what-sound");
         if (gameId === TRICKY_WORD_MATCH_GAME_ID) setView("tricky-word");
       }} />}
       <footer><span>Learning stays here.</span><span className="footer-dot">•</span><span>Private by design.</span></footer>
