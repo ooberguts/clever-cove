@@ -1,7 +1,7 @@
 import type { AppData, LearnerPreferences, StoredLearner } from "../domain/models";
 import type { AppStorage } from "./storage";
 
-export const CURRENT_SCHEMA_VERSION = 2;
+export const CURRENT_SCHEMA_VERSION = 3;
 
 export const DEFAULT_LEARNER_PREFERENCES: LearnerPreferences = {
   countingMaximum: 25,
@@ -57,6 +57,15 @@ export class AppDataService {
           learner.schemaVersion = 2;
         }
         migrated.schemaVersion = 2;
+        continue;
+      }
+      if (migrated.schemaVersion === 2) {
+        for (const learner of migrated.learners as StoredLearner[]) {
+          for (const progress of Object.values(learner.progress)) progress.daily = {};
+          for (const progress of Object.values(learner.learningProgress)) progress.daily = {};
+          learner.schemaVersion = 3;
+        }
+        migrated.schemaVersion = 3;
         continue;
       }
       throw new Error(`No migration is available for schema ${migrated.schemaVersion}.`);

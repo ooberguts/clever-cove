@@ -19,6 +19,13 @@ export interface LearningContentProgress {
   attempts: number;
   correct: number;
   lastPracticedAt?: string;
+  daily: Record<string, DailyLearningProgress>;
+}
+
+export interface DailyLearningProgress {
+  date: string;
+  attempts: number;
+  correct: number;
 }
 
 export interface GameProgress {
@@ -28,6 +35,15 @@ export interface GameProgress {
   completedRounds: number;
   sessions: number;
   lastPlayedAt?: string;
+  daily: Record<string, DailyGameProgress>;
+}
+
+export interface DailyGameProgress {
+  date: string;
+  attempts: number;
+  successes: number;
+  completedRounds: number;
+  sessions: number;
 }
 
 export interface LearnerProfile {

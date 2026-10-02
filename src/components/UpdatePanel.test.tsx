@@ -10,7 +10,7 @@ describe("Update panel", () => {
     const user = userEvent.setup();
     render(<UpdatePanel updates={services.updates} />);
 
-    expect(screen.getByText(/CleverCove v0\.2\.0/)).toBeInTheDocument();
+    expect(screen.getByText(/CleverCove v0\.3\.0/)).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Check for updates" }));
     expect(await screen.findByText("Open the installed CleverCove app to check.")).toBeInTheDocument();
   });

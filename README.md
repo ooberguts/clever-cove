@@ -15,6 +15,7 @@ Learner profiles, parent settings, private values, and progress stay in the oper
 
 - Multiple local learner profiles for grades K–12
 - Parent editing for learner names, grades, and per-learner practice settings
+- Parent progress reports for each learner, including most-played games, accuracy, focus areas, and seven-day improvement trends
 - PIN-protected Parent Mode
 - Generic private-value and game-requirement system
 - Kindergarten Counting Practice with 1–25, 1–50, and 1–100 modes
@@ -23,7 +24,7 @@ Learner profiles, parent settings, private values, and progress stay in the oper
 - Development-time content validation and macOS audio generation
 - Guided Student ID Practice with matching-digit colors, keypad sounds, success chimes, and mouse, touch, or keyboard controls
 - Parent-only update checking with signed download, install, and restart support on macOS and Windows
-- Aggregate-only progress history
+- Aggregate-only daily progress history with no stored answers
 - Allow-listed anonymous JSON export
 - Schema migration backups
 - Cryptographically signed GitHub release updater

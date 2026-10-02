@@ -13,23 +13,30 @@ export class ProgressService {
         successes: 0,
         completedRounds: 0,
         sessions: 0,
+        daily: {},
       },
     );
   }
 
   async startSession(learnerId: string, gameId: string): Promise<void> {
     await this.mutate(learnerId, gameId, (progress) => {
+      const day = this.ensureGameDay(progress);
       progress.sessions += 1;
+      day.sessions += 1;
       progress.lastPlayedAt = new Date().toISOString();
     });
   }
 
   async recordAttempt(learnerId: string, gameId: string, success: boolean): Promise<void> {
     await this.mutate(learnerId, gameId, (progress) => {
+      const day = this.ensureGameDay(progress);
       progress.attempts += 1;
+      day.attempts += 1;
       if (success) {
         progress.successes += 1;
         progress.completedRounds += 1;
+        day.successes += 1;
+        day.completedRounds += 1;
       }
       progress.lastPlayedAt = new Date().toISOString();
     });
@@ -52,24 +59,36 @@ export class ProgressService {
       const learner = data.learners.find((item) => item.id === learnerId);
       if (!learner) throw new Error("Learner was not found.");
       const gameProgress = this.ensureGameProgress(learner.progress, gameId);
+      const gameDay = this.ensureGameDay(gameProgress, now);
       gameProgress.attempts += 1;
+      gameDay.attempts += 1;
       if (success) {
         gameProgress.successes += 1;
         gameProgress.completedRounds += 1;
+        gameDay.successes += 1;
+        gameDay.completedRounds += 1;
       }
       gameProgress.lastPlayedAt = now;
 
       const key = `${skillId}::${contentId}`;
-      learner.learningProgress[key] ??= { skillId, contentId, attempts: 0, correct: 0 };
+      learner.learningProgress[key] ??= { skillId, contentId, attempts: 0, correct: 0, daily: {} };
+      const date = now.slice(0, 10);
+      learner.learningProgress[key].daily[date] ??= { date, attempts: 0, correct: 0 };
       learner.learningProgress[key].attempts += 1;
-      if (success) learner.learningProgress[key].correct += 1;
+      learner.learningProgress[key].daily[date].attempts += 1;
+      if (success) {
+        learner.learningProgress[key].correct += 1;
+        learner.learningProgress[key].daily[date].correct += 1;
+      }
       learner.learningProgress[key].lastPracticedAt = now;
     });
   }
 
   async recordPracticeCompletion(learnerId: string, gameId: string): Promise<void> {
     await this.mutate(learnerId, gameId, (progress) => {
+      const day = this.ensureGameDay(progress);
       progress.completedRounds += 1;
+      day.completedRounds += 1;
       progress.lastPlayedAt = new Date().toISOString();
     });
   }
@@ -87,7 +106,13 @@ export class ProgressService {
   }
 
   private ensureGameProgress(progress: Record<string, GameProgress>, gameId: string): GameProgress {
-    progress[gameId] ??= { gameId, attempts: 0, successes: 0, completedRounds: 0, sessions: 0 };
+    progress[gameId] ??= { gameId, attempts: 0, successes: 0, completedRounds: 0, sessions: 0, daily: {} };
     return progress[gameId];
+  }
+
+  private ensureGameDay(progress: GameProgress, timestamp = new Date().toISOString()) {
+    const date = timestamp.slice(0, 10);
+    progress.daily[date] ??= { date, attempts: 0, successes: 0, completedRounds: 0, sessions: 0 };
+    return progress.daily[date];
   }
 }

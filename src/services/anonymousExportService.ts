@@ -18,6 +18,7 @@ export class AnonymousExportService {
             successes: 0,
             completedRounds: 0,
             sessions: 0,
+            daily: {},
           };
           const privateValue = learner.privateValues["private.student_id"];
           return {

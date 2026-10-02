@@ -77,3 +77,29 @@ describe("Parent Mode Kindergarten settings", () => {
     });
   });
 });
+
+describe("Parent Mode progress reports", () => {
+  it("shows the selected learner's game activity and focus areas on a separate tab", async () => {
+    const { services } = await createTestServices();
+    const learner = await services.profiles.create("Maya", "K");
+    await services.profiles.create("Noah", "K");
+    await services.progress.startSession(learner.id, "reading.letter-sound-match");
+    await services.progress.startSession(learner.id, "reading.letter-sound-match");
+    await services.progress.recordLearningAttempt(learner.id, "reading.letter-sound-match", "reading.letter-sound-correspondence", "letter.m", false);
+    await services.progress.recordLearningAttempt(learner.id, "reading.letter-sound-match", "reading.letter-sound-correspondence", "letter.m", false);
+    await services.progress.recordLearningAttempt(learner.id, "reading.letter-sound-match", "reading.letter-sound-correspondence", "letter.m", true);
+    const user = userEvent.setup();
+    render(<ParentModeHarness services={services} initialLearners={services.profiles.list()} />);
+
+    await user.click(screen.getByRole("tab", { name: "Progress report" }));
+    expect(screen.getByRole("tab", { name: "Progress report" })).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByText("What Maya plays")).toBeInTheDocument();
+    expect(screen.getByText("2", { selector: ".report-metric strong" })).toBeInTheDocument();
+    expect(screen.getByText("Letter Mm")).toBeInTheDocument();
+    expect(screen.getByText("Most played")).toBeInTheDocument();
+    expect(screen.getByText("More practice")).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: /Noah Grade K/ }));
+    expect(screen.getByText("What Noah plays")).toBeInTheDocument();
+    expect(screen.getByText("No practice recorded yet")).toBeInTheDocument();
+  });
+});

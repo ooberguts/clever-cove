@@ -12,10 +12,11 @@ CleverCove is a local-first Tauri 2 desktop application. React components never 
 - **Learning content** — `src/content` owns stable number, letter, phoneme, word, term, distractor, and audio IDs. Games consume catalog records rather than embedding curriculum lists.
 - **Local speech** — `AudioService` resolves stable IDs through the bundled audio manifest. Spoken assets work offline and missing playback is contained without crashing a game.
 - **Game registry** — `src/games/registry.ts` is the catalog used by the dashboard. Required settings are resolved from each manifest.
-- **Progress** — `ProgressService` records game totals plus aggregate skill/content counters and timestamps. It has no API for raw answers.
+- **Progress** — `ProgressService` records game totals plus aggregate daily and skill/content counters. It has no API for raw answers.
+- **Parent reports** — `buildLearnerReport` derives per-learner play frequency, accuracy, focus areas, and fourteen-day history. Improvement compares the latest seven days with the preceding seven days after each period has at least three answers.
 - **Anonymous exports** — `AnonymousExportService` builds a new allow-listed object rather than filtering the storage object.
 - **Updates** — `UpdateService` wraps the Tauri updater and process plugins. `UpdatePanel` keeps checking and restart controls behind Parent Mode.
-- **Storage and migrations** — `AppDataService` owns the current schema and creates a backup before migration. Schema 2 adds Kindergarten preferences and content-level aggregate progress. Tauri Store persists into the operating system app-data directory. Browser local storage is used only for development preview and tests.
+- **Storage and migrations** — `AppDataService` owns the current schema and creates a backup before migration. Schema 2 adds Kindergarten preferences and content-level aggregate progress. Schema 3 adds privacy-safe daily aggregate counters for progress reports. Tauri Store persists into the operating system app-data directory. Browser local storage is used only for development preview and tests.
 
 ## Privacy boundary
 

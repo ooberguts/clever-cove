@@ -22,7 +22,7 @@ export class ProfileService {
       displayName: trimmedName,
       grade,
       createdAt: new Date().toISOString(),
-      schemaVersion: 2,
+      schemaVersion: 3,
       progress: {},
       learningProgress: {},
       preferences: structuredClone(DEFAULT_LEARNER_PREFERENCES),

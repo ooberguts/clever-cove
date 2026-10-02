@@ -1,9 +1,10 @@
 import { useMemo, useState, type FormEvent } from "react";
-import { ArrowLeft, BookOpen, Check, Download, Hash, Pencil, Plus, Save, ShieldCheck, UserRound, UsersRound, X } from "lucide-react";
+import { ArrowLeft, BarChart3, BookOpen, Check, Download, Hash, Pencil, Plus, Save, Settings, ShieldCheck, UserRound, UsersRound, X } from "lucide-react";
 import { kindergartenLetters, kindergartenTrickyWordGroups } from "../content";
 import { COUNTING_MAXIMUMS, type CountingMaximum, GRADES, type Grade, type LearnerProfile, type TrickyWordGroup } from "../domain/models";
 import type { AppServices } from "../services";
 import { UpdatePanel } from "./UpdatePanel";
+import { LearnerReport } from "./LearnerReport";
 
 interface ParentModeProps {
   services: AppServices;
@@ -20,6 +21,7 @@ export function ParentMode({ services, learners, onRefresh, onExit }: ParentMode
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState("");
   const [editGrade, setEditGrade] = useState<Grade>("K");
+  const [activePanel, setActivePanel] = useState<"settings" | "report">("settings");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const selected = useMemo(() => learners.find((learner) => learner.id === selectedId), [learners, selectedId]);
@@ -157,9 +159,13 @@ export function ParentMode({ services, learners, onRefresh, onExit }: ParentMode
               <div className="settings-title">
                 <div className="avatar-large">{selected.displayName[0].toUpperCase()}</div>
                 <div className="settings-title-copy"><span className="eyebrow">LEARNER SETTINGS</span><h2>{selected.displayName}</h2><p>Grade {selected.grade}</p></div>
-                {!isEditing && <button className="secondary-button edit-learner-button" type="button" onClick={beginEditing}><Pencil /> Edit learner</button>}
+                {activePanel === "settings" && !isEditing && <button className="secondary-button edit-learner-button" type="button" onClick={beginEditing}><Pencil /> Edit learner</button>}
               </div>
-              {isEditing && (
+              <div className="parent-section-tabs" role="tablist" aria-label={`${selected.displayName}'s parent information`}>
+                <button type="button" role="tab" aria-selected={activePanel === "settings"} className={activePanel === "settings" ? "active" : ""} onClick={() => setActivePanel("settings")}><Settings /> Settings</button>
+                <button type="button" role="tab" aria-selected={activePanel === "report"} className={activePanel === "report" ? "active" : ""} onClick={() => { setActivePanel("report"); setIsEditing(false); }}><BarChart3 /> Progress report</button>
+              </div>
+              {activePanel === "settings" && isEditing && (
                 <article className="setting-card learner-edit-card">
                   <div className="setting-card-heading"><div className="setting-icon"><Pencil /></div><div><h3>Edit learner</h3><p>Update the name and grade shown on this computer.</p></div></div>
                   <form className="learner-edit-form" onSubmit={saveLearner}>
@@ -178,7 +184,7 @@ export function ParentMode({ services, learners, onRefresh, onExit }: ParentMode
                   </form>
                 </article>
               )}
-              <article className="setting-card learning-settings-card">
+              {activePanel === "settings" && <><article className="setting-card learning-settings-card">
                 <div className="setting-card-heading"><div className="setting-icon warm"><BookOpen /></div><div><h3>Kindergarten learning pack</h3><p>Choose what {selected.displayName} is practicing right now.</p></div></div>
                 <div className="learning-setting-row">
                   <div className="learning-setting-copy"><Hash /><span><strong>Counting range</strong><small>Default is 1–25.</small></span></div>
@@ -217,9 +223,10 @@ export function ParentMode({ services, learners, onRefresh, onExit }: ParentMode
               <article className="setting-card compact">
                 <div className="setting-card-heading"><div className="setting-icon warm"><Download /></div><div><h3>Anonymous progress export</h3><p>Export safe learning totals without names, PINs, or entered digits.</p></div><button className="secondary-button" type="button" onClick={downloadExport}><Download /> Export JSON</button></div>
               </article>
+              <UpdatePanel updates={services.updates} /></>}
+              {activePanel === "report" && <LearnerReport learner={selected} />}
             </>
           ) : <div className="no-selection"><UserRound /><h2>Add your first learner</h2><p>Use the form on the left to create a profile.</p></div>}
-          <UpdatePanel updates={services.updates} />
         </section>
       </div>
     </main>

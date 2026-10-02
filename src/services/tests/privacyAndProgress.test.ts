@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { missingGameSettings } from "../../games/registry";
 import { studentIdManifest, STUDENT_ID_GAME_ID } from "../../games/student-id/manifest";
 import type { AppData } from "../../domain/models";
@@ -24,12 +24,38 @@ describe("private settings, game locks, progress, and exports", () => {
     const appData = new AppDataService(storage);
     const migrated = await appData.initialize();
     expect(storage.backups).toHaveLength(1);
-    expect(migrated.schemaVersion).toBe(2);
+    expect(migrated.schemaVersion).toBe(3);
     expect(migrated.learners[0]).toMatchObject({
-      schemaVersion: 2,
+      schemaVersion: 3,
       learningProgress: {},
       preferences: { countingMaximum: 25, letterFocusIds: [], trickyWordGroup: "all" },
     });
+  });
+
+  it("adds empty daily history when migrating version 2 totals", async () => {
+    const storage = new MemoryStorage();
+    storage.data = {
+      schemaVersion: 2,
+      learners: [{
+        id: "version-2-learner",
+        displayName: "Existing",
+        grade: "K",
+        createdAt: "2026-01-01T00:00:00.000Z",
+        schemaVersion: 2,
+        progress: {
+          "math.counting-practice": { gameId: "math.counting-practice", attempts: 7, successes: 5, completedRounds: 5, sessions: 2 },
+        },
+        learningProgress: {
+          "math.number-recognition::number.7": { skillId: "math.number-recognition", contentId: "number.7", attempts: 4, correct: 3 },
+        },
+        preferences: { countingMaximum: 25, letterFocusIds: [], trickyWordGroup: "all" },
+        gameConfigurationRefs: [],
+        privateValues: {},
+      }],
+    } as unknown as AppData;
+    const migrated = await new AppDataService(storage).initialize();
+    expect(migrated.learners[0].progress["math.counting-practice"]).toMatchObject({ attempts: 7, daily: {} });
+    expect(migrated.learners[0].learningProgress["math.number-recognition::number.7"]).toMatchObject({ attempts: 4, daily: {} });
   });
 
   it("locks a game when its manifest requirement is missing and unlocks after setup", async () => {
@@ -66,6 +92,29 @@ describe("private settings, game locks, progress, and exports", () => {
     const progress = services.progress.get(learner.id, STUDENT_ID_GAME_ID);
     expect(progress.sessions).toBe(2);
     expect(progress.lastPlayedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+  });
+
+  it("collects privacy-safe daily totals for improvement reports", async () => {
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date("2026-10-01T15:30:00.000Z"));
+      const { services } = await createTestServices();
+      const learner = await services.profiles.create("Ari", "K");
+      await services.progress.startSession(learner.id, "reading.letter-sound-match");
+      await services.progress.recordLearningAttempt(
+        learner.id,
+        "reading.letter-sound-match",
+        "reading.letter-sound-correspondence",
+        "letter.m",
+        true,
+      );
+      const game = services.progress.get(learner.id, "reading.letter-sound-match");
+      expect(game.daily["2026-10-01"]).toMatchObject({ sessions: 1, attempts: 1, successes: 1 });
+      expect(services.progress.getLearning(learner.id)[0].daily["2026-10-01"]).toMatchObject({ attempts: 1, correct: 1 });
+      expect(JSON.stringify(game.daily)).not.toContain("letter.m");
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it("stores per-learner Kindergarten practice preferences", async () => {
