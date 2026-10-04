@@ -4,22 +4,58 @@ set -eu
 REPOSITORY="ooberguts/clever-cove"
 ARCH="$(uname -m)"
 case "$ARCH" in
-  arm64|aarch64) PATTERN='aarch64.*\.dmg$' ;;
-  x86_64|amd64) PATTERN='x64.*\.dmg$|x86_64.*\.dmg$' ;;
+  arm64|aarch64) MATCH_PATTERN='aarch64.*\.dmg$' ;;
+  x86_64|amd64) MATCH_PATTERN='(x64|x86_64).*\.dmg$' ;;
   *) echo "Unsupported Mac architecture: $ARCH" >&2; exit 1 ;;
 esac
 
-ASSET_URL="$(curl -fsSL "https://api.github.com/repos/$REPOSITORY/releases/latest" | grep -Eo 'https://[^\"]+\.dmg' | grep -Ei "$PATTERN" | head -1)"
-if [ -z "$ASSET_URL" ]; then
-  echo "No compatible macOS installer was found in the latest release." >&2
+TEMP_DIR="$(mktemp -d)"
+MOUNT_POINT="$TEMP_DIR/mount"
+DMG_PATH="$TEMP_DIR/CleverCove.dmg"
+MOUNTED=0
+
+cleanup() {
+  if [ "$MOUNTED" -eq 1 ]; then
+    hdiutil detach "$MOUNT_POINT" -quiet >/dev/null 2>&1 || true
+  fi
+  rm -rf "$TEMP_DIR"
+}
+trap cleanup EXIT HUP INT TERM
+
+mkdir -p "$MOUNT_POINT"
+
+if command -v gh >/dev/null 2>&1 && gh auth status >/dev/null 2>&1; then
+  ASSET_NAME="$(gh release view --repo "$REPOSITORY" --json assets --jq '.assets[].name' | grep -Ei "$MATCH_PATTERN" | head -1 || true)"
+  if [ -z "$ASSET_NAME" ]; then
+    echo "No compatible macOS DMG was found in the latest GitHub release." >&2
+    exit 1
+  fi
+  gh release download --repo "$REPOSITORY" --pattern "$ASSET_NAME" --dir "$TEMP_DIR"
+  mv "$TEMP_DIR/$ASSET_NAME" "$DMG_PATH"
+else
+  RELEASE_JSON="$(curl -fsSL "https://api.github.com/repos/$REPOSITORY/releases/latest" 2>/dev/null || true)"
+  ASSET_URL="$(printf '%s' "$RELEASE_JSON" | grep -Eo 'https://[^\"]+\.dmg' | grep -Ei "$MATCH_PATTERN" | head -1 || true)"
+  if [ -z "$ASSET_URL" ]; then
+    echo "The release could not be downloaded. If this repository is private, install GitHub CLI, run 'gh auth login', and rerun this script." >&2
+    exit 1
+  fi
+  curl -fL "$ASSET_URL" -o "$DMG_PATH"
+fi
+
+hdiutil attach "$DMG_PATH" -nobrowse -readonly -mountpoint "$MOUNT_POINT" -quiet
+MOUNTED=1
+
+if [ ! -d "$MOUNT_POINT/CleverCove.app" ]; then
+  echo "The DMG did not contain CleverCove.app." >&2
   exit 1
 fi
 
-TEMP_DIR="$(mktemp -d)"
-trap 'rm -rf "$TEMP_DIR"' EXIT
-curl -fL "$ASSET_URL" -o "$TEMP_DIR/CleverCove.dmg"
-hdiutil attach "$TEMP_DIR/CleverCove.dmg" -nobrowse -quiet
-VOLUME="$(find /Volumes -maxdepth 1 -type d -name 'CleverCove*' | head -1)"
-cp -R "$VOLUME/CleverCove.app" /Applications/
-hdiutil detach "$VOLUME" -quiet
+if [ -w /Applications ]; then
+  ditto "$MOUNT_POINT/CleverCove.app" /Applications/CleverCove.app
+else
+  sudo ditto "$MOUNT_POINT/CleverCove.app" /Applications/CleverCove.app
+fi
+
+hdiutil detach "$MOUNT_POINT" -quiet
+MOUNTED=0
 echo "CleverCove was installed in /Applications."

@@ -59,12 +59,12 @@ npm run content:validate
 
 ## Install from GitHub Releases
 
-After the first desktop release is published, use these one-line installers.
+The repository is private, so first install [GitHub CLI](https://cli.github.com/) and sign in with `gh auth login`. These commands then download the installer through your authenticated GitHub account.
 
 ### macOS (Apple Silicon or Intel)
 
 ```bash
-curl -fsSL https://github.com/ooberguts/clever-cove/releases/latest/download/install.sh | bash
+temp_dir="$(mktemp -d)" && gh release download --repo ooberguts/clever-cove --pattern install.sh --dir "$temp_dir" && sh "$temp_dir/install.sh"
 ```
 
 Or open the latest release in a browser and download the `.dmg` matching your Mac. Apple Silicon builds use `aarch64`; Intel builds use `x64`.
@@ -72,10 +72,12 @@ Or open the latest release in a browser and download the `.dmg` matching your Ma
 ### Windows x64 (PowerShell)
 
 ```powershell
-irm https://github.com/ooberguts/clever-cove/releases/latest/download/install.ps1 | iex
+$tempDir = Join-Path $env:TEMP "CleverCoveInstall"; New-Item -ItemType Directory -Force $tempDir | Out-Null; gh release download --repo ooberguts/clever-cove --pattern install.ps1 --dir $tempDir --clobber; & (Join-Path $tempDir "install.ps1")
 ```
 
 Or download the `.msi` or `-setup.exe` from the latest release and run it.
+
+If the repository is later made public, the installer scripts also support unauthenticated downloads.
 
 After installation, a parent can open **Parent Mode → App updates** to check, install, and restart into a newer signed version.
 

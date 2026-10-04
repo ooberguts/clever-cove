@@ -5,6 +5,10 @@ on:
   push:
     tags: ["v*"]
 
+concurrency:
+  group: desktop-release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build:
     permissions:
@@ -13,12 +17,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - platform: macos-14
-            args: --target aarch64-apple-darwin
-          - platform: macos-15-intel
-            args: --target x86_64-apple-darwin
+          - platform: macos-latest
+            target: aarch64-apple-darwin
+          - platform: macos-latest
+            target: x86_64-apple-darwin
           - platform: windows-latest
-            args: --target x86_64-pc-windows-msvc
+            target: x86_64-pc-windows-msvc
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v5
@@ -28,9 +32,9 @@ jobs:
           cache: npm
       - uses: dtolnay/rust-toolchain@stable
         with:
-          targets: ${{ contains(matrix.platform, 'macos') && (matrix.platform == 'macos-14' && 'aarch64-apple-darwin' || 'x86_64-apple-darwin') || 'x86_64-pc-windows-msvc' }}
+          targets: ${{ matrix.target }}
       - run: npm ci
-      - uses: tauri-apps/tauri-action@v0
+      - uses: tauri-apps/tauri-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
@@ -38,12 +42,16 @@ jobs:
         with:
           tagName: v__VERSION__
           releaseName: CleverCove v__VERSION__
-          releaseBody: Download the installer for your computer from the Assets section below.
-          releaseDraft: true
-          prerelease: true
-          args: ${{ matrix.args }}
+          releaseBody: |
+            Download the installer for your computer from the Assets section below.
 
-  attach-installers:
+            - macOS: choose the aarch64 DMG for Apple Silicon or the x64 DMG for Intel.
+            - Windows: choose the setup EXE or MSI.
+          releaseDraft: true
+          prerelease: false
+          args: --target ${{ matrix.target }}
+
+  publish:
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -53,5 +61,15 @@ jobs:
       - id: version
         run: echo "tag=v$(jq -r .version package.json)" >> "$GITHUB_OUTPUT"
       - run: gh release upload "${{ steps.version.outputs.tag }}" scripts/install.sh scripts/install.ps1 --clobber
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Verify every supported installer exists
+        run: |
+          gh release view "${{ steps.version.outputs.tag }}" --json assets --jq '.assets[].name' > release-assets.txt
+          ./scripts/verify-release-assets.sh release-assets.txt
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish as the latest stable release
+        run: gh release edit "${{ steps.version.outputs.tag }}" --draft=false --prerelease=false --latest
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
