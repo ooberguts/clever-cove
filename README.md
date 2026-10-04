@@ -72,7 +72,7 @@ Or open the latest release in a browser and download the `.dmg` matching your Ma
 ### Windows x64 (PowerShell)
 
 ```powershell
-$tempDir = Join-Path $env:TEMP "CleverCoveInstall"; New-Item -ItemType Directory -Force $tempDir | Out-Null; gh release download --repo ooberguts/clever-cove --pattern install.ps1 --dir $tempDir --clobber; & (Join-Path $tempDir "install.ps1")
+$tempDir = Join-Path $env:TEMP "CleverCoveInstall"; New-Item -ItemType Directory -Force $tempDir | Out-Null; gh release download --repo ooberguts/clever-cove --pattern install.ps1 --dir $tempDir --clobber; powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $tempDir "install.ps1")
 ```
 
 Or download the `.msi` or `-setup.exe` from the latest release and run it.
