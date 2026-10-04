@@ -50,6 +50,15 @@ jobs:
           releaseDraft: true
           prerelease: false
           args: --target ${{ matrix.target }}
+      - name: Verify macOS app and disk image
+        if: startsWith(matrix.target, 'aarch64-apple-') || startsWith(matrix.target, 'x86_64-apple-')
+        shell: bash
+        run: |
+          bundle_dir="src-tauri/target/${{ matrix.target }}/release/bundle"
+          codesign --verify --deep --strict "$bundle_dir/macos/CleverCove.app"
+          dmg_path="$(find "$bundle_dir/dmg" -maxdepth 1 -name '*.dmg' -print -quit)"
+          test -n "$dmg_path"
+          hdiutil verify "$dmg_path"
 
   publish:
     needs: build

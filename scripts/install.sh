@@ -50,7 +50,12 @@ if [ ! -d "$MOUNT_POINT/CleverCove.app" ]; then
   exit 1
 fi
 
-if [ -w /Applications ]; then
+if ! codesign --verify --deep --strict "$MOUNT_POINT/CleverCove.app"; then
+  echo "The downloaded app failed macOS signature verification and was not installed." >&2
+  exit 1
+fi
+
+if [ -w /Applications ] || { [ -d /Applications/CleverCove.app ] && [ -w /Applications/CleverCove.app ]; }; then
   ditto "$MOUNT_POINT/CleverCove.app" /Applications/CleverCove.app
 else
   sudo ditto "$MOUNT_POINT/CleverCove.app" /Applications/CleverCove.app

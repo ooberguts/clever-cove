@@ -1,6 +1,6 @@
 [package]
 name = "clever-cove"
-version = "0.4.2"
+version = "0.4.3"
 description = "A private, local-first educational practice app"
 authors = ["CleverCove contributors"]
 edition = "2021"
